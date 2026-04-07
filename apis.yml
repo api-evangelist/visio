@@ -15,10 +15,10 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/graph/api/resources/visio
     baseURL: https://graph.microsoft.com/v1.0
     tags:
-      - Diagrams
       - Collaboration
-      - Visualization
+      - Diagrams
       - Enterprise
+      - Visualization
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/graph/api/resources/visio
@@ -37,23 +37,20 @@ apis:
       JavaScript API for building add-ins that interact with Visio diagrams in Visio
       for the web.
     image: https://www.microsoft.com/en-us/microsoft-365/visio/visio-logo.png
-    humanURL: 
-      https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/visio-javascript-reference-overview
+    humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/visio-javascript-reference-overview
     baseURL: https://visio.office.com
     tags:
+      - Add-Ins
+      - Client-Side
       - JavaScript
-      - Add-ins
       - Web
-      - Client-side
     properties:
       - type: Documentation
-        url: 
-          https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/visio-javascript-reference-overview
+        url: https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/visio-javascript-reference-overview
       - type: API Reference
         url: https://learn.microsoft.com/en-us/javascript/api/visio
       - type: Getting Started
-        url: 
-          https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+        url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
       - type: Samples
         url: https://github.com/OfficeDev/Office-Add-in-samples
     contact:
@@ -70,16 +67,15 @@ common:
   - type: Status Page
     url: https://status.office.com
   - type: Pricing
-    url: 
-      https://www.microsoft.com/en-us/microsoft-365/visio/microsoft-visio-plans-and-pricing-compare-visio-options
+    url: https://www.microsoft.com/en-us/microsoft-365/visio/microsoft-visio-plans-and-pricing-compare-visio-options
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 tags:
-  - Diagrams
-  - Flowcharts
-  - Visualization
   - Business Process
-  - Microsoft 365
   - Collaboration
+  - Diagrams
   - Enterprise
+  - Flowcharts
+  - Microsoft 365
+  - Visualization
