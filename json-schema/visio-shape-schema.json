@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/visio/main/json-schema/visio-shape-schema.json",
+  "title": "Visio Shape",
+  "description": "JSON Schema for a Microsoft Visio shape element, including text, data items, hyperlinks, comments, and visual view properties.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Numeric identifier for the shape within the page"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the shape as assigned in the Visio diagram"
+    },
+    "text": {
+      "type": "string",
+      "description": "Text content displayed inside the shape"
+    },
+    "select": {
+      "type": "boolean",
+      "description": "Whether this shape is currently selected by the user"
+    },
+    "boundingBox": {
+      "type": "object",
+      "description": "Bounding box coordinates of the shape in diagram units",
+      "properties": {
+        "x": { "type": "number", "description": "X coordinate of top-left corner" },
+        "y": { "type": "number", "description": "Y coordinate of top-left corner" },
+        "width": { "type": "number", "description": "Width in diagram units" },
+        "height": { "type": "number", "description": "Height in diagram units" }
+      },
+      "required": ["x", "y", "width", "height"]
+    },
+    "shapeDataItems": {
+      "type": "object",
+      "description": "Structured business data associated with this shape",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string", "description": "Data item label/key" },
+              "value": { "type": "string", "description": "Data item value" },
+              "format": { "type": "string", "description": "Optional format string" },
+              "formattedValue": { "type": "string", "description": "Value after formatting" }
+            },
+            "required": ["label", "value"]
+          }
+        }
+      }
+    },
+    "hyperlinks": {
+      "type": "object",
+      "description": "Hyperlinks attached to this shape",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": { "type": "string", "description": "URL target" },
+              "description": { "type": "string" },
+              "subAddress": { "type": "string" },
+              "extraInfo": { "type": "string" }
+            },
+            "required": ["address"]
+          }
+        }
+      }
+    },
+    "comments": {
+      "type": "object",
+      "description": "Comments associated with this shape",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "author": { "type": "string" },
+              "date": { "type": "string", "format": "date-time" },
+              "text": { "type": "string" }
+            },
+            "required": ["author", "text"]
+          }
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "description": "Visual presentation settings for the shape",
+      "properties": {
+        "highlight": {
+          "type": "object",
+          "properties": {
+            "color": { "type": "string", "description": "CSS color string" },
+            "width": { "type": "integer", "description": "Border width in points" }
+          }
+        },
+        "tooltip": { "type": "string", "description": "Tooltip text" }
+      }
+    }
+  },
+  "required": ["id", "name"]
+}

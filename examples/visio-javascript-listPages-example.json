@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/document/pages",
+    "headers": {
+      "X-Embedded-Session": "{{VISIO_EMBEDDED_SESSION}}",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Page-1",
+          "index": 0,
+          "isBackground": false,
+          "view": {
+            "zoom": 100
+          }
+        },
+        {
+          "id": 2,
+          "name": "Background",
+          "index": 1,
+          "isBackground": true,
+          "view": {
+            "zoom": 100
+          }
+        }
+      ]
+    }
+  }
+}

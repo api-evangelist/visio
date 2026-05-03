@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/visio/main/json-schema/visio-page-schema.json",
+  "title": "Visio Page",
+  "description": "JSON Schema for a Microsoft Visio diagram page, including metadata, view settings, and shapes.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Numeric page identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the page as shown in the Visio tab"
+    },
+    "index": {
+      "type": "integer",
+      "description": "Zero-based index of the page in the document"
+    },
+    "isBackground": {
+      "type": "boolean",
+      "description": "Whether this page is a background page"
+    },
+    "view": {
+      "type": "object",
+      "description": "View settings for this page",
+      "properties": {
+        "zoom": {
+          "type": "integer",
+          "description": "Zoom level as a percentage (e.g. 100 for 100%)",
+          "minimum": 1,
+          "maximum": 400
+        }
+      }
+    },
+    "shapes": {
+      "type": "object",
+      "description": "Shapes on this page",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "visio-shape-schema.json"
+          }
+        }
+      }
+    }
+  },
+  "required": ["id", "name"]
+}

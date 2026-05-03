@@ -1,0 +1,76 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "visio": "https://learn.microsoft.com/en-us/javascript/api/visio/visio.",
+    "ms": "https://learn.microsoft.com/en-us/graph/",
+
+    "Document": "visio:document",
+    "Page": "visio:page",
+    "Shape": "visio:shape",
+    "ShapeDataItem": "visio:shapedataitem",
+    "Hyperlink": "visio:hyperlink",
+    "Comment": "visio:comment",
+    "Application": "visio:application",
+    "BoundingBox": "visio:boundingbox",
+    "PageView": "visio:pageview",
+    "ShapeView": "visio:shapeview",
+    "Highlight": "visio:highlight",
+
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "text": "schema:text",
+    "author": "schema:author",
+    "date": "schema:dateCreated",
+    "address": "schema:url",
+    "label": "schema:name",
+    "value": "schema:value",
+
+    "pages": {
+      "@id": "visio:document.pages",
+      "@type": "visio:pagecollection"
+    },
+    "shapes": {
+      "@id": "visio:page.shapes",
+      "@type": "visio:shapecollection"
+    },
+    "shapeDataItems": {
+      "@id": "visio:shape.shapedataitems",
+      "@type": "visio:shapedataitemcollection"
+    },
+    "hyperlinks": {
+      "@id": "visio:shape.hyperlinks",
+      "@type": "visio:hyperlinkcollection"
+    },
+    "comments": {
+      "@id": "visio:shape.comments",
+      "@type": "visio:commentcollection"
+    },
+    "boundingBox": {
+      "@id": "visio:shape.boundingbox",
+      "@type": "visio:boundingbox"
+    },
+    "view": {
+      "@id": "visio:view"
+    },
+    "highlight": {
+      "@id": "visio:shapeview.highlight",
+      "@type": "visio:highlight"
+    },
+    "zoom": "visio:pageview.zoom",
+    "showToolbars": "visio:application.showtoolbars",
+    "isBackground": "visio:page.isbackground",
+    "index": "visio:page.index",
+    "select": "visio:shape.select",
+    "color": "schema:color",
+    "width": "schema:width",
+    "height": "schema:height",
+    "x": "visio:boundingbox.x",
+    "y": "visio:boundingbox.y",
+    "subAddress": "visio:hyperlink.subaddress",
+    "extraInfo": "visio:hyperlink.extrainfo",
+    "format": "visio:shapedataitem.format",
+    "formattedValue": "visio:shapedataitem.formattedvalue",
+    "tooltip": "visio:shapeview.tooltip"
+  }
+}

@@ -1,0 +1,148 @@
+vocabulary:
+  name: Microsoft Visio API Vocabulary
+  description: >-
+    Vocabulary for the Microsoft Visio JavaScript API, covering diagram creation,
+    shape management, data visualization, and SharePoint integration terminology.
+  version: "1.0"
+  created: "2026-05-03"
+  tags:
+    - Business Process
+    - Diagrams
+    - Microsoft 365
+    - Visualization
+
+terms:
+  - term: Shape
+    definition: >-
+      A graphical element on a Visio diagram page. Shapes can represent processes,
+      decisions, documents, people, or any business concept. Each shape has a numeric
+      ID, name, text label, position, and can carry structured data items and hyperlinks.
+    tags:
+      - Diagram Elements
+      - Core
+
+  - term: Page
+    definition: >-
+      A single drawing surface within a Visio document. Pages are organized with a
+      name and index and can be marked as background pages. Each page contains a
+      collection of shapes.
+    tags:
+      - Diagram Structure
+      - Core
+
+  - term: Document
+    definition: >-
+      The Visio file loaded in the current embedded session. A document contains
+      one or more pages and application settings.
+    tags:
+      - Core
+      - File Management
+
+  - term: EmbeddedSession
+    definition: >-
+      A communication channel between a developer's web frame and the Visio application
+      embedded in an iframe on a SharePoint Online page. Required to initialize the
+      Visio JavaScript API.
+    tags:
+      - Authentication
+      - Integration
+
+  - term: RequestContext
+    definition: >-
+      The context object required to interact with the Visio object model from an
+      Office Add-in. Facilitates queued batch requests sent to the Visio host.
+    tags:
+      - API Pattern
+      - Core
+
+  - term: ShapeDataItem
+    definition: >-
+      A structured label-value pair attached to a Visio shape. Used to store business
+      data such as employee IDs, status flags, cost values, or any metadata linked to
+      diagram elements. Supports optional format strings.
+    tags:
+      - Data
+      - Shapes
+
+  - term: Hyperlink
+    definition: >-
+      A URL or file path reference attached to a Visio shape. Hyperlinks can point to
+      external websites, other Visio pages, or document anchors. They include an
+      address, description, and optional sub-address.
+    tags:
+      - Navigation
+      - Shapes
+
+  - term: Comment
+    definition: >-
+      A textual annotation associated with a shape, including the author name, creation
+      date, and comment text.
+    tags:
+      - Collaboration
+      - Shapes
+
+  - term: BoundingBox
+    definition: >-
+      The rectangular spatial area occupied by a shape, defined by x/y coordinates for
+      the top-left corner plus width and height in Visio diagram units.
+    tags:
+      - Geometry
+      - Shapes
+
+  - term: Highlight
+    definition: >-
+      A visual decoration applied to a shape to draw attention, consisting of a border
+      color (CSS string) and border width in points.
+    tags:
+      - Visual
+      - Shapes
+
+  - term: Overlay
+    definition: >-
+      Custom HTML or graphical content added on top of a Visio shape to display
+      additional contextual information or interactive elements.
+    tags:
+      - Visual
+      - Customization
+
+  - term: DataVisualizer
+    definition: >-
+      A Visio feature that automatically generates diagrams from structured data sources
+      such as Excel tables or SQL queries, mapping data columns to shape types and properties.
+    tags:
+      - Data
+      - Automation
+
+  - term: VBA
+    definition: >-
+      Visual Basic for Applications macro language supported by the Visio desktop client
+      for automating diagram creation and manipulation in traditional desktop deployments.
+    tags:
+      - Automation
+      - Desktop
+
+  - term: ShapeSheet
+    definition: >-
+      The underlying spreadsheet-like formula system within Visio that controls every
+      property of shapes, pages, and documents. Advanced customization uses ShapeSheet
+      cells to define behavior, geometry, and formatting.
+    tags:
+      - Advanced
+      - Customization
+
+  - term: Stencil
+    definition: >-
+      A collection of reusable shape templates organized by category (e.g., flowchart,
+      network, organization chart). Stencils are the source from which shapes are dragged
+      onto diagram pages.
+    tags:
+      - Diagram Structure
+      - Templates
+
+  - term: Connector
+    definition: >-
+      A special shape type that represents a directional link between two other shapes,
+      used to model flows, relationships, or dependencies in process and network diagrams.
+    tags:
+      - Diagram Elements
+      - Relationships

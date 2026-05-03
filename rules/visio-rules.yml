@@ -1,0 +1,95 @@
+extends:
+  - spectral:oas
+
+rules:
+  # Visio API conventions: all operation IDs must follow camelCase
+  visio-operationid-camelcase:
+    message: "Operation IDs must use camelCase (e.g. getDocument, listShapes)"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  # All operations must have a summary
+  visio-operation-summary-required:
+    message: "All Visio API operations must have a summary"
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: summary
+      function: truthy
+
+  # Summaries must use Title Case
+  visio-summary-title-case:
+    message: "Operation summaries must use Title Case"
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 ]+$"
+
+  # All responses must have descriptions
+  visio-response-description-required:
+    message: "All response codes must have a description"
+    severity: warn
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  # Path parameters must be documented
+  visio-path-param-described:
+    message: "All path parameters must have a description"
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.in=='path')]"
+    then:
+      field: description
+      function: truthy
+
+  # Schemas must have descriptions
+  visio-schema-description:
+    message: "All named schemas must have a description"
+    severity: hint
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+
+  # Operations must be tagged
+  visio-operation-tags-required:
+    message: "All operations must be assigned at least one tag"
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  # Use 200 for successful GET responses
+  visio-get-success-200:
+    message: "GET operations must return 200 for success"
+    severity: warn
+    given: "$.paths[*].get.responses"
+    then:
+      field: "200"
+      function: truthy
+
+  # Error responses should reference the Error schema
+  visio-error-schema-ref:
+    message: "500 error responses should reference the Error schema component"
+    severity: hint
+    given: "$.paths[*][*].responses['500'].content['application/json'].schema"
+    then:
+      field: "$ref"
+      function: truthy
+
+  # PATCH operations must have a request body
+  visio-patch-has-request-body:
+    message: "PATCH operations must include a requestBody"
+    severity: error
+    given: "$.paths[*].patch"
+    then:
+      field: requestBody
+      function: truthy

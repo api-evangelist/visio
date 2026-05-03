@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/document/pages/Page-1/shapes",
+    "headers": {
+      "X-Embedded-Session": "{{VISIO_EMBEDDED_SESSION}}",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Process",
+          "text": "Order Processing",
+          "select": false,
+          "boundingBox": {
+            "x": 100.0,
+            "y": 50.0,
+            "width": 120.0,
+            "height": 60.0
+          }
+        },
+        {
+          "id": 2,
+          "name": "Decision",
+          "text": "Approved?",
+          "select": true,
+          "boundingBox": {
+            "x": 300.0,
+            "y": 50.0,
+            "width": 100.0,
+            "height": 80.0
+          }
+        }
+      ]
+    }
+  }
+}

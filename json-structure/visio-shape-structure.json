@@ -1,0 +1,91 @@
+{
+  "title": "Visio Shape Structure",
+  "description": "Structural documentation for the Visio Shape object returned by the Visio JavaScript API",
+  "type": "object",
+  "fields": [
+    { "name": "id", "type": "integer", "required": true, "description": "Unique numeric shape identifier" },
+    { "name": "name", "type": "string", "required": true, "description": "Shape name in diagram" },
+    { "name": "text", "type": "string", "required": false, "description": "Visible text inside shape" },
+    { "name": "select", "type": "boolean", "required": false, "description": "Current selection state" },
+    {
+      "name": "boundingBox",
+      "type": "object",
+      "required": false,
+      "description": "Spatial position and dimensions",
+      "fields": [
+        { "name": "x", "type": "number", "description": "X position" },
+        { "name": "y", "type": "number", "description": "Y position" },
+        { "name": "width", "type": "number", "description": "Shape width" },
+        { "name": "height", "type": "number", "description": "Shape height" }
+      ]
+    },
+    {
+      "name": "shapeDataItems",
+      "type": "object",
+      "required": false,
+      "description": "Business data attached to shape",
+      "fields": [
+        {
+          "name": "items",
+          "type": "array",
+          "description": "Array of label-value data pairs",
+          "items": [
+            { "name": "label", "type": "string" },
+            { "name": "value", "type": "string" },
+            { "name": "format", "type": "string" },
+            { "name": "formattedValue", "type": "string" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hyperlinks",
+      "type": "object",
+      "required": false,
+      "description": "URL links from shape",
+      "fields": [
+        {
+          "name": "items",
+          "type": "array",
+          "items": [
+            { "name": "address", "type": "string" },
+            { "name": "description", "type": "string" },
+            { "name": "subAddress", "type": "string" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "comments",
+      "type": "object",
+      "required": false,
+      "fields": [
+        {
+          "name": "items",
+          "type": "array",
+          "items": [
+            { "name": "author", "type": "string" },
+            { "name": "date", "type": "string" },
+            { "name": "text", "type": "string" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "view",
+      "type": "object",
+      "required": false,
+      "fields": [
+        { "name": "tooltip", "type": "string" },
+        {
+          "name": "highlight",
+          "type": "object",
+          "fields": [
+            { "name": "color", "type": "string" },
+            { "name": "width", "type": "integer" }
+          ]
+        }
+      ]
+    }
+  ]
+}
