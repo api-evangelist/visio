@@ -115,6 +115,18 @@ common:
     url: vocabulary/visio-vocabulary.yml
   - type: SpectralRules
     url: rules/visio-rules.yml
+  - type: Integrations
+    url: https://www.microsoft.com/en-us/marketplace
+integrations:
+  - name: Microsoft
+  - name: Two people looking at a computer.
+  - name: This is placeholder text for
+  - name: IDC
+  - name: Nationwide
+  - name: RSA company
+  - name: Teleperformance
+  - name: A woman smiling at a laptop
+  - name: A man holding a laptop.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
