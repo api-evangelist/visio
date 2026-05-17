@@ -47,7 +47,7 @@ apis:
         url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
       - type: Reference
         url: https://learn.microsoft.com/en-us/javascript/api/visio
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
       - type: Samples
         url: https://github.com/OfficeDev/Office-Add-in-samples
@@ -87,19 +87,19 @@ apis:
         email: support@microsoft.com
         url: https://support.microsoft.com
 common:
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.microsoft.com/en-us/legal/terms-of-use
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://privacy.microsoft.com/en-us/privacystatement
   - type: Developer Portal
     url: https://developer.microsoft.com/en-us/microsoft-365
-  - type: Status Page
+  - type: StatusPage
     url: https://status.office.com
   - type: Pricing
     url: https://www.microsoft.com/en-us/microsoft-365/visio/microsoft-visio-plans-and-pricing-compare-visio-options
   - type: Blog
     url: https://devblogs.microsoft.com/microsoft365dev/
-  - type: Change Log
+  - type: ChangeLog
     url: https://learn.microsoft.com/en-us/javascript/api/overview/visio/release-notes
   - type: OpenAPI
     url: openapi/visio-javascript-openapi.yml
