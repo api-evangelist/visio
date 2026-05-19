@@ -1,0 +1,187 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Visio JavaScript API — Shapes
+  description: 'Visio JavaScript API — Shapes. 3 operations. Lead operation: List Shapes. Self-contained Naftiko capability
+    covering one Visio business surface.'
+  tags:
+  - Visio
+  - Shapes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VISIO_API_KEY: VISIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: javascript-shapes
+    baseUri: https://appsforoffice.microsoft.com/embedded/1.0
+    description: Visio JavaScript API — Shapes business capability. Self-contained, no shared references.
+    resources:
+    - name: document-pages-pageName-shapes
+      path: /document/pages/{pageName}/shapes
+      operations:
+      - name: listshapes
+        method: GET
+        description: List Shapes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageName
+          in: path
+          type: string
+          description: Name of the Visio page
+          required: true
+    - name: document-pages-pageName-shapes-shapeId
+      path: /document/pages/{pageName}/shapes/{shapeId}
+      operations:
+      - name: getshape
+        method: GET
+        description: Get Shape
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageName
+          in: path
+          type: string
+          description: Name of the Visio page
+          required: true
+        - name: shapeId
+          in: path
+          type: integer
+          description: Numeric ID of the shape
+          required: true
+    - name: document-pages-pageName-shapes-shapeId-view
+      path: /document/pages/{pageName}/shapes/{shapeId}/view
+      operations:
+      - name: updateshapeview
+        method: PATCH
+        description: Update Shape View
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageName
+          in: path
+          type: string
+          description: Name of the Visio page
+          required: true
+        - name: shapeId
+          in: path
+          type: integer
+          description: Numeric ID of the shape
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: X-Embedded-Session
+      value: '{{env.VISIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: javascript-shapes-rest
+    port: 8080
+    description: REST adapter for Visio JavaScript API — Shapes. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/document/pages/{pagename}/shapes
+      name: document-pages-pagename-shapes
+      description: REST surface for document-pages-pageName-shapes.
+      operations:
+      - method: GET
+        name: listshapes
+        description: List Shapes
+        call: javascript-shapes.listshapes
+        with:
+          pageName: rest.pageName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/document/pages/{pagename}/shapes/{shapeid}
+      name: document-pages-pagename-shapes-shapeid
+      description: REST surface for document-pages-pageName-shapes-shapeId.
+      operations:
+      - method: GET
+        name: getshape
+        description: Get Shape
+        call: javascript-shapes.getshape
+        with:
+          pageName: rest.pageName
+          shapeId: rest.shapeId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/document/pages/{pagename}/shapes/{shapeid}/view
+      name: document-pages-pagename-shapes-shapeid-view
+      description: REST surface for document-pages-pageName-shapes-shapeId-view.
+      operations:
+      - method: PATCH
+        name: updateshapeview
+        description: Update Shape View
+        call: javascript-shapes.updateshapeview
+        with:
+          pageName: rest.pageName
+          shapeId: rest.shapeId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: javascript-shapes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Visio JavaScript API — Shapes. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-shapes
+      description: List Shapes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: javascript-shapes.listshapes
+      with:
+        pageName: tools.pageName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-shape
+      description: Get Shape
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: javascript-shapes.getshape
+      with:
+        pageName: tools.pageName
+        shapeId: tools.shapeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-shape-view
+      description: Update Shape View
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: javascript-shapes.updateshapeview
+      with:
+        pageName: tools.pageName
+        shapeId: tools.shapeId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Visio JavaScript API — Hyperlinks
+  description: 'Visio JavaScript API — Hyperlinks. 1 operations. Lead operation: List Shape Hyperlinks. Self-contained Naftiko
+    capability covering one Visio business surface.'
+  tags:
+  - Visio
+  - Hyperlinks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VISIO_API_KEY: VISIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: javascript-hyperlinks
+    baseUri: https://appsforoffice.microsoft.com/embedded/1.0
+    description: Visio JavaScript API — Hyperlinks business capability. Self-contained, no shared references.
+    resources:
+    - name: document-pages-pageName-shapes-shapeId-hyperlinks
+      path: /document/pages/{pageName}/shapes/{shapeId}/hyperlinks
+      operations:
+      - name: listshapehyperlinks
+        method: GET
+        description: List Shape Hyperlinks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageName
+          in: path
+          type: string
+          description: Name of the Visio page
+          required: true
+        - name: shapeId
+          in: path
+          type: integer
+          description: Numeric ID of the shape
+          required: true
+    authentication:
+      type: apikey
+      key: X-Embedded-Session
+      value: '{{env.VISIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: javascript-hyperlinks-rest
+    port: 8080
+    description: REST adapter for Visio JavaScript API — Hyperlinks. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/document/pages/{pagename}/shapes/{shapeid}/hyperlinks
+      name: document-pages-pagename-shapes-shapeid-hyperlinks
+      description: REST surface for document-pages-pageName-shapes-shapeId-hyperlinks.
+      operations:
+      - method: GET
+        name: listshapehyperlinks
+        description: List Shape Hyperlinks
+        call: javascript-hyperlinks.listshapehyperlinks
+        with:
+          pageName: rest.pageName
+          shapeId: rest.shapeId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: javascript-hyperlinks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Visio JavaScript API — Hyperlinks. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-shape-hyperlinks
+      description: List Shape Hyperlinks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: javascript-hyperlinks.listshapehyperlinks
+      with:
+        pageName: tools.pageName
+        shapeId: tools.shapeId
+      outputParameters:
+      - type: object
+        mapping: $.

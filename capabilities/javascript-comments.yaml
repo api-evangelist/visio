@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Visio JavaScript API — Comments
+  description: 'Visio JavaScript API — Comments. 1 operations. Lead operation: List Shape Comments. Self-contained Naftiko
+    capability covering one Visio business surface.'
+  tags:
+  - Visio
+  - Comments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VISIO_API_KEY: VISIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: javascript-comments
+    baseUri: https://appsforoffice.microsoft.com/embedded/1.0
+    description: Visio JavaScript API — Comments business capability. Self-contained, no shared references.
+    resources:
+    - name: document-pages-pageName-shapes-shapeId-comments
+      path: /document/pages/{pageName}/shapes/{shapeId}/comments
+      operations:
+      - name: listshapecomments
+        method: GET
+        description: List Shape Comments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageName
+          in: path
+          type: string
+          description: Name of the Visio page
+          required: true
+        - name: shapeId
+          in: path
+          type: integer
+          description: Numeric ID of the shape
+          required: true
+    authentication:
+      type: apikey
+      key: X-Embedded-Session
+      value: '{{env.VISIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: javascript-comments-rest
+    port: 8080
+    description: REST adapter for Visio JavaScript API — Comments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/document/pages/{pagename}/shapes/{shapeid}/comments
+      name: document-pages-pagename-shapes-shapeid-comments
+      description: REST surface for document-pages-pageName-shapes-shapeId-comments.
+      operations:
+      - method: GET
+        name: listshapecomments
+        description: List Shape Comments
+        call: javascript-comments.listshapecomments
+        with:
+          pageName: rest.pageName
+          shapeId: rest.shapeId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: javascript-comments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Visio JavaScript API — Comments. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-shape-comments
+      description: List Shape Comments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: javascript-comments.listshapecomments
+      with:
+        pageName: tools.pageName
+        shapeId: tools.shapeId
+      outputParameters:
+      - type: object
+        mapping: $.

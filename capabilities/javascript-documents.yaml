@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Visio JavaScript API — Documents
+  description: 'Visio JavaScript API — Documents. 1 operations. Lead operation: Get Document. Self-contained Naftiko capability
+    covering one Visio business surface.'
+  tags:
+  - Visio
+  - Documents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VISIO_API_KEY: VISIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: javascript-documents
+    baseUri: https://appsforoffice.microsoft.com/embedded/1.0
+    description: Visio JavaScript API — Documents business capability. Self-contained, no shared references.
+    resources:
+    - name: document
+      path: /document
+      operations:
+      - name: getdocument
+        method: GET
+        description: Get Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Embedded-Session
+      value: '{{env.VISIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: javascript-documents-rest
+    port: 8080
+    description: REST adapter for Visio JavaScript API — Documents. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/document
+      name: document
+      description: REST surface for document.
+      operations:
+      - method: GET
+        name: getdocument
+        description: Get Document
+        call: javascript-documents.getdocument
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: javascript-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Visio JavaScript API — Documents. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-document
+      description: Get Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: javascript-documents.getdocument
+      outputParameters:
+      - type: object
+        mapping: $.

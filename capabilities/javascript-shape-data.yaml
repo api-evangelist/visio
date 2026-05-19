@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Visio JavaScript API — Shape Data
+  description: 'Visio JavaScript API — Shape Data. 1 operations. Lead operation: List Shape Data Items. Self-contained Naftiko
+    capability covering one Visio business surface.'
+  tags:
+  - Visio
+  - Shape Data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VISIO_API_KEY: VISIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: javascript-shape-data
+    baseUri: https://appsforoffice.microsoft.com/embedded/1.0
+    description: Visio JavaScript API — Shape Data business capability. Self-contained, no shared references.
+    resources:
+    - name: document-pages-pageName-shapes-shapeId-shapeDataItems
+      path: /document/pages/{pageName}/shapes/{shapeId}/shapeDataItems
+      operations:
+      - name: listshapedataitems
+        method: GET
+        description: List Shape Data Items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageName
+          in: path
+          type: string
+          description: Name of the Visio page
+          required: true
+        - name: shapeId
+          in: path
+          type: integer
+          description: Numeric ID of the shape
+          required: true
+    authentication:
+      type: apikey
+      key: X-Embedded-Session
+      value: '{{env.VISIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: javascript-shape-data-rest
+    port: 8080
+    description: REST adapter for Visio JavaScript API — Shape Data. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/document/pages/{pagename}/shapes/{shapeid}/shapedataitems
+      name: document-pages-pagename-shapes-shapeid-shapedataitems
+      description: REST surface for document-pages-pageName-shapes-shapeId-shapeDataItems.
+      operations:
+      - method: GET
+        name: listshapedataitems
+        description: List Shape Data Items
+        call: javascript-shape-data.listshapedataitems
+        with:
+          pageName: rest.pageName
+          shapeId: rest.shapeId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: javascript-shape-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Visio JavaScript API — Shape Data. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-shape-data-items
+      description: List Shape Data Items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: javascript-shape-data.listshapedataitems
+      with:
+        pageName: tools.pageName
+        shapeId: tools.shapeId
+      outputParameters:
+      - type: object
+        mapping: $.
