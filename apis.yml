@@ -86,7 +86,7 @@ common:
     url: https://www.microsoft.com/en-us/legal/terms-of-use
   - type: PrivacyPolicy
     url: https://privacy.microsoft.com/en-us/privacystatement
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.microsoft.com/en-us/microsoft-365
   - type: StatusPage
     url: https://status.office.com
