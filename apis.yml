@@ -82,6 +82,12 @@ apis:
         email: support@microsoft.com
         url: https://support.microsoft.com
 common:
+  - type: VulnerabilityDisclosure
+    url: security/visio-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/visio-domain-security.yml
+  - type: Authentication
+    url: authentication/visio-authentication.yml
   - type: TermsOfService
     url: https://www.microsoft.com/en-us/legal/terms-of-use
   - type: PrivacyPolicy
