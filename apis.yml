@@ -82,6 +82,8 @@ apis:
         email: support@microsoft.com
         url: https://support.microsoft.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/visio-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/visio-vulnerability-disclosure.yml
   - type: DomainSecurity
