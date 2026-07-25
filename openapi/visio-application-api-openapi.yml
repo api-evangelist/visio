@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Visio JavaScript Application API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  version: '1.1'
+  contact:
+    name: Microsoft Office Dev
+    url: https://developer.microsoft.com/office
+    email: officedevfeedback@microsoft.com
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://appsforoffice.microsoft.com/embedded/1.0
+  description: Visio Office Add-ins embedded endpoint
+security:
+- EmbeddedSession: []
+tags:
+- name: Application
+  description: Operations for controlling the Visio application host settings
+paths:
+  /document/application:
+    get:
+      operationId: getApplication
+      summary: Get Application
+      description: Returns the Visio application host settings for the embedded session, including toolbar visibility and other UI configuration options.
+      tags:
+      - Application
+      responses:
+        '200':
+          description: Application settings object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '500':
+          description: Internal server error
+    patch:
+      operationId: updateApplication
+      summary: Update Application Settings
+      description: Updates Visio application settings such as toolbar visibility for the current embedded session.
+      tags:
+      - Application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationUpdate'
+      responses:
+        '200':
+          description: Updated application settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          description: Invalid request body
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Application:
+      type: object
+      description: Represents the Visio application host settings
+      properties:
+        showToolbars:
+          type: boolean
+          description: Whether toolbars are displayed in the Visio application
+    ApplicationUpdate:
+      type: object
+      description: Partial update to application settings
+      properties:
+        showToolbars:
+          type: boolean
+          description: Set to false to hide toolbars
+  securitySchemes:
+    EmbeddedSession:
+      type: apiKey
+      in: header
+      name: X-Embedded-Session
+      description: Visio EmbeddedSession token obtained via OfficeExtension.EmbeddedSession initialization
+externalDocs:
+  description: Visio JavaScript API Documentation
+  url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview

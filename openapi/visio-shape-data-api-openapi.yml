@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Visio JavaScript Application Shape Data API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  version: '1.1'
+  contact:
+    name: Microsoft Office Dev
+    url: https://developer.microsoft.com/office
+    email: officedevfeedback@microsoft.com
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://appsforoffice.microsoft.com/embedded/1.0
+  description: Visio Office Add-ins embedded endpoint
+security:
+- EmbeddedSession: []
+tags:
+- name: Shape Data
+  description: Operations for reading structured data associated with shapes
+paths:
+  /document/pages/{pageName}/shapes/{shapeId}/shapeDataItems:
+    get:
+      operationId: listShapeDataItems
+      summary: List Shape Data Items
+      description: Returns all structured data items associated with a specific shape. Shape data items contain label-value pairs that store business data linked to diagram elements.
+      tags:
+      - Shape Data
+      parameters:
+      - name: pageName
+        in: path
+        required: true
+        description: Name of the Visio page
+        schema:
+          type: string
+      - name: shapeId
+        in: path
+        required: true
+        description: Numeric ID of the shape
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Collection of shape data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShapeDataItemCollection'
+        '404':
+          description: Shape not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    ShapeDataItemCollection:
+      type: object
+      description: Collection of data items associated with a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
+    ShapeDataItem:
+      type: object
+      description: A structured data item (label-value pair) associated with a shape
+      properties:
+        label:
+          type: string
+          description: Label or key for the data item
+        value:
+          type: string
+          description: Value associated with the label
+        format:
+          type: string
+          description: Optional display format for the value
+        formattedValue:
+          type: string
+          description: Value after applying the format string
+  securitySchemes:
+    EmbeddedSession:
+      type: apiKey
+      in: header
+      name: X-Embedded-Session
+      description: Visio EmbeddedSession token obtained via OfficeExtension.EmbeddedSession initialization
+externalDocs:
+  description: Visio JavaScript API Documentation
+  url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview

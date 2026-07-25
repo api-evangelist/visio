@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Visio JavaScript Application Hyperlinks API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  version: '1.1'
+  contact:
+    name: Microsoft Office Dev
+    url: https://developer.microsoft.com/office
+    email: officedevfeedback@microsoft.com
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://appsforoffice.microsoft.com/embedded/1.0
+  description: Visio Office Add-ins embedded endpoint
+security:
+- EmbeddedSession: []
+tags:
+- name: Hyperlinks
+  description: Operations for accessing hyperlinks attached to shapes
+paths:
+  /document/pages/{pageName}/shapes/{shapeId}/hyperlinks:
+    get:
+      operationId: listShapeHyperlinks
+      summary: List Shape Hyperlinks
+      description: Returns all hyperlinks attached to a specific shape in the Visio diagram. Hyperlinks may point to external URLs, other pages, or diagram elements.
+      tags:
+      - Hyperlinks
+      parameters:
+      - name: pageName
+        in: path
+        required: true
+        description: Name of the Visio page
+        schema:
+          type: string
+      - name: shapeId
+        in: path
+        required: true
+        description: Numeric ID of the shape
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Collection of hyperlinks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HyperlinkCollection'
+        '404':
+          description: Shape not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Hyperlink:
+      type: object
+      description: A hyperlink attached to a Visio shape
+      properties:
+        address:
+          type: string
+          description: URL or file path the hyperlink points to
+        description:
+          type: string
+          description: Display description for the hyperlink
+        subAddress:
+          type: string
+          description: Sub-address within the target (e.g. page name)
+        extraInfo:
+          type: string
+          description: Additional information passed with the URL
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
+  securitySchemes:
+    EmbeddedSession:
+      type: apiKey
+      in: header
+      name: X-Embedded-Session
+      description: Visio EmbeddedSession token obtained via OfficeExtension.EmbeddedSession initialization
+externalDocs:
+  description: Visio JavaScript API Documentation
+  url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview

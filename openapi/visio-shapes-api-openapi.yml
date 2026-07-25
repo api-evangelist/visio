@@ -1,0 +1,274 @@
+openapi: 3.1.0
+info:
+  title: Visio JavaScript Application Shapes API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  version: '1.1'
+  contact:
+    name: Microsoft Office Dev
+    url: https://developer.microsoft.com/office
+    email: officedevfeedback@microsoft.com
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://appsforoffice.microsoft.com/embedded/1.0
+  description: Visio Office Add-ins embedded endpoint
+security:
+- EmbeddedSession: []
+tags:
+- name: Shapes
+  description: Operations for accessing and managing shapes on a Visio page
+paths:
+  /document/pages/{pageName}/shapes:
+    get:
+      operationId: listShapes
+      summary: List Shapes
+      description: Returns all shapes on the specified Visio page. Each shape includes its name, text, ID, selection state, bounding box, and associated data.
+      tags:
+      - Shapes
+      parameters:
+      - name: pageName
+        in: path
+        required: true
+        description: Name of the Visio page
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Collection of shapes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShapeCollection'
+        '404':
+          description: Page not found
+        '500':
+          description: Internal server error
+  /document/pages/{pageName}/shapes/{shapeId}:
+    get:
+      operationId: getShape
+      summary: Get Shape
+      description: Returns a specific shape on the Visio page identified by its shape ID. Includes shape text, data items, hyperlinks, and visual view properties.
+      tags:
+      - Shapes
+      parameters:
+      - name: pageName
+        in: path
+        required: true
+        description: Name of the Visio page
+        schema:
+          type: string
+      - name: shapeId
+        in: path
+        required: true
+        description: Numeric ID of the shape
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Shape object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shape'
+        '404':
+          description: Shape not found
+        '500':
+          description: Internal server error
+  /document/pages/{pageName}/shapes/{shapeId}/view:
+    patch:
+      operationId: updateShapeView
+      summary: Update Shape View
+      description: Updates the visual presentation of a shape, including highlight color, tooltip text, and overlay content for the specified shape.
+      tags:
+      - Shapes
+      parameters:
+      - name: pageName
+        in: path
+        required: true
+        description: Name of the Visio page
+        schema:
+          type: string
+      - name: shapeId
+        in: path
+        required: true
+        description: Numeric ID of the shape
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShapeViewUpdate'
+      responses:
+        '200':
+          description: Updated shape view
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShapeView'
+        '404':
+          description: Shape not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Shape:
+      type: object
+      description: Represents a shape element on a Visio page
+      properties:
+        id:
+          type: integer
+          description: Numeric shape identifier
+        name:
+          type: string
+          description: Name of the shape
+        text:
+          type: string
+          description: Text content displayed inside the shape
+        select:
+          type: boolean
+          description: Whether this shape is currently selected by the user
+        view:
+          $ref: '#/components/schemas/ShapeView'
+        shapeDataItems:
+          $ref: '#/components/schemas/ShapeDataItemCollection'
+        hyperlinks:
+          $ref: '#/components/schemas/HyperlinkCollection'
+        comments:
+          $ref: '#/components/schemas/CommentCollection'
+        boundingBox:
+          $ref: '#/components/schemas/BoundingBox'
+    CommentCollection:
+      type: object
+      description: Collection of comments on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    BoundingBox:
+      type: object
+      description: Bounding box coordinates of a shape
+      properties:
+        x:
+          type: number
+          description: X coordinate of the top-left corner
+        y:
+          type: number
+          description: Y coordinate of the top-left corner
+        width:
+          type: number
+          description: Width of the bounding box
+        height:
+          type: number
+          description: Height of the bounding box
+    ShapeViewUpdate:
+      type: object
+      description: Partial update to shape view settings
+      properties:
+        highlight:
+          $ref: '#/components/schemas/Highlight'
+        tooltip:
+          type: string
+          description: New tooltip text for the shape
+    Comment:
+      type: object
+      description: A comment associated with a Visio shape
+      properties:
+        author:
+          type: string
+          description: Name of the comment author
+        date:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was created
+        text:
+          type: string
+          description: Content of the comment
+    Hyperlink:
+      type: object
+      description: A hyperlink attached to a Visio shape
+      properties:
+        address:
+          type: string
+          description: URL or file path the hyperlink points to
+        description:
+          type: string
+          description: Display description for the hyperlink
+        subAddress:
+          type: string
+          description: Sub-address within the target (e.g. page name)
+        extraInfo:
+          type: string
+          description: Additional information passed with the URL
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
+    ShapeCollection:
+      type: object
+      description: A collection of shapes on a Visio page
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shape'
+    Highlight:
+      type: object
+      description: Highlight decoration applied to a shape
+      properties:
+        color:
+          type: string
+          description: CSS color string for the highlight (e.g.
+        width:
+          type: integer
+          description: Width of the highlight border in points
+    ShapeView:
+      type: object
+      description: Visual presentation settings for a shape
+      properties:
+        highlight:
+          $ref: '#/components/schemas/Highlight'
+        tooltip:
+          type: string
+          description: Tooltip text shown on hover
+    ShapeDataItemCollection:
+      type: object
+      description: Collection of data items associated with a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
+    ShapeDataItem:
+      type: object
+      description: A structured data item (label-value pair) associated with a shape
+      properties:
+        label:
+          type: string
+          description: Label or key for the data item
+        value:
+          type: string
+          description: Value associated with the label
+        format:
+          type: string
+          description: Optional display format for the value
+        formattedValue:
+          type: string
+          description: Value after applying the format string
+  securitySchemes:
+    EmbeddedSession:
+      type: apiKey
+      in: header
+      name: X-Embedded-Session
+      description: Visio EmbeddedSession token obtained via OfficeExtension.EmbeddedSession initialization
+externalDocs:
+  description: Visio JavaScript API Documentation
+  url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview

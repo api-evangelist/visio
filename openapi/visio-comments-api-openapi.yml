@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Visio JavaScript Application Comments API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  version: '1.1'
+  contact:
+    name: Microsoft Office Dev
+    url: https://developer.microsoft.com/office
+    email: officedevfeedback@microsoft.com
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://appsforoffice.microsoft.com/embedded/1.0
+  description: Visio Office Add-ins embedded endpoint
+security:
+- EmbeddedSession: []
+tags:
+- name: Comments
+  description: Operations for reading and managing shape comments
+paths:
+  /document/pages/{pageName}/shapes/{shapeId}/comments:
+    get:
+      operationId: listShapeComments
+      summary: List Shape Comments
+      description: Returns all comments attached to a specific shape in the Visio diagram. Comments contain author, date, and text content.
+      tags:
+      - Comments
+      parameters:
+      - name: pageName
+        in: path
+        required: true
+        description: Name of the Visio page
+        schema:
+          type: string
+      - name: shapeId
+        in: path
+        required: true
+        description: Numeric ID of the shape
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Collection of comments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentCollection'
+        '404':
+          description: Shape not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Comment:
+      type: object
+      description: A comment associated with a Visio shape
+      properties:
+        author:
+          type: string
+          description: Name of the comment author
+        date:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was created
+        text:
+          type: string
+          description: Content of the comment
+    CommentCollection:
+      type: object
+      description: Collection of comments on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+  securitySchemes:
+    EmbeddedSession:
+      type: apiKey
+      in: header
+      name: X-Embedded-Session
+      description: Visio EmbeddedSession token obtained via OfficeExtension.EmbeddedSession initialization
+externalDocs:
+  description: Visio JavaScript API Documentation
+  url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview

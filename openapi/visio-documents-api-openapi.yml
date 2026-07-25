@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Visio JavaScript Application Documents API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  version: '1.1'
+  contact:
+    name: Microsoft Office Dev
+    url: https://developer.microsoft.com/office
+    email: officedevfeedback@microsoft.com
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://appsforoffice.microsoft.com/embedded/1.0
+  description: Visio Office Add-ins embedded endpoint
+security:
+- EmbeddedSession: []
+tags:
+- name: Documents
+  description: Operations for accessing and managing Visio document properties and views
+paths:
+  /document:
+    get:
+      operationId: getDocument
+      summary: Get Document
+      description: Returns the current Visio document loaded in the embedded session, including its properties and view settings.
+      tags:
+      - Documents
+      responses:
+        '200':
+          description: Document object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '401':
+          description: Unauthorized - Invalid or missing EmbeddedSession
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Document:
+      type: object
+      description: Represents the Visio document loaded in the embedded session
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the document
+        title:
+          type: string
+          description: Title of the Visio document
+        application:
+          $ref: '#/components/schemas/Application'
+        view:
+          $ref: '#/components/schemas/DocumentView'
+    DocumentView:
+      type: object
+      description: View settings for the Visio document
+      properties:
+        disableHyperlinks:
+          type: boolean
+          description: Whether hyperlinks are disabled in the document view
+        disablePan:
+          type: boolean
+          description: Whether panning is disabled
+        disableZoom:
+          type: boolean
+          description: Whether zooming is disabled
+        hideDiagramBoundary:
+          type: boolean
+          description: Whether the diagram boundary is hidden
+    Application:
+      type: object
+      description: Represents the Visio application host settings
+      properties:
+        showToolbars:
+          type: boolean
+          description: Whether toolbars are displayed in the Visio application
+  securitySchemes:
+    EmbeddedSession:
+      type: apiKey
+      in: header
+      name: X-Embedded-Session
+      description: Visio EmbeddedSession token obtained via OfficeExtension.EmbeddedSession initialization
+externalDocs:
+  description: Visio JavaScript API Documentation
+  url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
