@@ -5,6 +5,19 @@ description: >-
   API enables developers to build Office Add-ins that interact with Visio diagrams embedded in SharePoint Online pages,
   accessing document elements such as pages, shapes, hyperlinks, comments, and shape data. Visio APIs support
   programmatic diagram manipulation, visual overlay creation, mouse event handling, and data visualization workflows.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.microsoft.com/en-us/microsoft-365/visio/visio-logo.png
 type: Index
 tags:
@@ -20,68 +33,163 @@ created: '2024'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: visio:visio-javascript-api
-    name: Visio JavaScript API
-    description: >-
-      The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic
-      SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks,
-      comments, shape data items, and shape views. Developers can create visual markup overlays, register mouse event
-      handlers, read shape text and shape data, and control application toolbar visibility. The API uses a request
-      context and proxy object pattern with batch execution via Visio.run() and context.sync().
-    humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
-    baseURL: https://appsforoffice.microsoft.com/embedded/1.0
-    tags:
-      - Add-Ins
-      - Client-Side
-      - Diagrams
-      - JavaScript
-      - Office
-      - SharePoint
-      - Web
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
-      - type: Reference
-        url: https://learn.microsoft.com/en-us/javascript/api/visio
-      - type: GettingStarted
-        url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-      - type: Samples
-        url: https://github.com/OfficeDev/Office-Add-in-samples
-      - type: OpenAPI
-        url: openapi/visio-javascript-openapi.yml
-    contact:
-      - FN: Microsoft Office Dev
-        email: officedevfeedback@microsoft.com
-        url: https://developer.microsoft.com/office
-  - aid: visio:microsoft-graph-visio-api
-    name: Microsoft Graph Visio API
-    description: >-
-      Access and manipulate Visio files stored in OneDrive and SharePoint through Microsoft Graph. While direct
-      Visio-specific REST endpoints are limited, Microsoft Graph provides file management capabilities for Visio
-      documents through the DriveItem resource, enabling upload, download, and metadata operations on .vsdx and .vsd
-      files stored in SharePoint and OneDrive.
-    humanURL: https://learn.microsoft.com/en-us/graph/api/resources/visio
-    baseURL: https://graph.microsoft.com/v1.0
-    tags:
-      - Cloud
-      - Collaboration
-      - Diagrams
-      - Enterprise
-      - Microsoft Graph
-      - OneDrive
-      - SharePoint
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/graph/api/resources/visio
-      - type: Authentication
-        url: https://learn.microsoft.com/en-us/graph/auth/
-      - type: SDKs
-        url: https://learn.microsoft.com/en-us/graph/sdks/sdks-overview
-    contact:
-      - FN: Microsoft Support
-        email: support@microsoft.com
-        url: https://support.microsoft.com
+- aid: visio:microsoft-graph-visio-api
+  name: Microsoft Graph Visio API
+  description: >-
+    Access and manipulate Visio files stored in OneDrive and SharePoint through Microsoft Graph. While
+    direct Visio-specific REST endpoints are limited, Microsoft Graph provides file management capabilities
+    for Visio documents through the DriveItem resource, enabling upload, download, and metadata operations
+    on .vsdx and .vsd files stored in SharePoint and OneDrive.
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/visio
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - Cloud
+  - Collaboration
+  - Diagrams
+  - Enterprise
+  - Microsoft Graph
+  - OneDrive
+  - SharePoint
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/visio
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/graph/auth/
+  - type: SDKs
+    url: https://learn.microsoft.com/en-us/graph/sdks/sdks-overview
+  contact:
+  - FN: Microsoft Support
+    email: support@microsoft.com
+    url: https://support.microsoft.com
+- aid: visio:visio-application-api
+  name: Microsoft Visio API Application API
+  description: Operations for controlling the Visio application host settings
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Application
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-application-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
+- aid: visio:visio-comments-api
+  name: Microsoft Visio API Comments API
+  description: Operations for reading and managing shape comments
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-comments-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
+- aid: visio:visio-documents-api
+  name: Microsoft Visio API Documents API
+  description: Operations for accessing and managing Visio document properties and views
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-documents-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
+- aid: visio:visio-hyperlinks-api
+  name: Microsoft Visio API Hyperlinks API
+  description: Operations for accessing hyperlinks attached to shapes
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Hyperlinks
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-hyperlinks-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
+- aid: visio:visio-pages-api
+  name: Microsoft Visio API Pages API
+  description: Operations for listing and managing pages within a Visio document
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-pages-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
+- aid: visio:visio-shape-data-api
+  name: Microsoft Visio API Shape Data API
+  description: Operations for reading structured data associated with shapes
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Shape Data
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-shape-data-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
+- aid: visio:visio-shapes-api
+  name: Microsoft Visio API Shapes API
+  description: Operations for accessing and managing shapes on a Visio page
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  baseURL: https://appsforoffice.microsoft.com/embedded/1.0
+  tags:
+  - Shapes
+  properties:
+  - type: OpenAPI
+    url: openapi/visio-shapes-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
+  - type: Samples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/microsoft-visio-api/overview
   - type: AgenticAccess
     url: agentic-access/visio-agentic-access.yml
   - type: VulnerabilityDisclosure
