@@ -1,0 +1,366 @@
+{
+  "info": {
+    "_postman_id": "ec50afae-1698-44a9-b390-1753eef42813",
+    "name": "Visio JavaScript Application API",
+    "description": "The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().\n\nContact Support:\n Name: Microsoft Office Dev\n Email: officedevfeedback@microsoft.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:27:37.000Z",
+    "updatedAt": "2026-07-28T03:27:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ec50afae-1698-44a9-b390-1753eef42813"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "application",
+          "item": [
+            {
+              "name": "Get Application",
+              "id": "5b469294-d60f-47c3-8294-e1eea958341c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    "application"
+                  ]
+                },
+                "description": "Returns the Visio application host settings for the embedded session, including toolbar visibility and other UI configuration options."
+              },
+              "response": [
+                {
+                  "id": "e55eb9b1-97e4-4ea1-9f6f-971665d65a1c",
+                  "name": "Application settings object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/application",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "application"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"showToolbars\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:27:38.000Z",
+                  "updatedAt": "2026-07-28T03:27:38.000Z",
+                  "uid": "35240-e55eb9b1-97e4-4ea1-9f6f-971665d65a1c"
+                },
+                {
+                  "id": "2b8a78ce-6c66-414a-8ef0-02b2d4c03b59",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/application",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "application"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:38.000Z",
+                  "updatedAt": "2026-07-28T03:27:38.000Z",
+                  "uid": "35240-2b8a78ce-6c66-414a-8ef0-02b2d4c03b59"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:38.000Z",
+              "updatedAt": "2026-07-28T03:27:38.000Z",
+              "uid": "35240-5b469294-d60f-47c3-8294-e1eea958341c"
+            },
+            {
+              "name": "Update Application Settings",
+              "id": "168ad49a-39d5-4b91-a218-96253a546e5d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"showToolbars\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/document/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    "application"
+                  ]
+                },
+                "description": "Updates Visio application settings such as toolbar visibility for the current embedded session."
+              },
+              "response": [
+                {
+                  "id": "7e410d50-b257-4760-b196-d053dbe18c5d",
+                  "name": "Updated application settings",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"showToolbars\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/document/application",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "application"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"showToolbars\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:27:38.000Z",
+                  "updatedAt": "2026-07-28T03:27:38.000Z",
+                  "uid": "35240-7e410d50-b257-4760-b196-d053dbe18c5d"
+                },
+                {
+                  "id": "df50cd64-147a-4319-825b-6420b5557518",
+                  "name": "Invalid request body",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"showToolbars\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/document/application",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "application"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:38.000Z",
+                  "updatedAt": "2026-07-28T03:27:38.000Z",
+                  "uid": "35240-df50cd64-147a-4319-825b-6420b5557518"
+                },
+                {
+                  "id": "86027447-c1c9-409c-b473-fa1c3d982c0b",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"showToolbars\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/document/application",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "application"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:38.000Z",
+                  "updatedAt": "2026-07-28T03:27:38.000Z",
+                  "uid": "35240-86027447-c1c9-409c-b473-fa1c3d982c0b"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:38.000Z",
+              "updatedAt": "2026-07-28T03:27:38.000Z",
+              "uid": "35240-168ad49a-39d5-4b91-a218-96253a546e5d"
+            }
+          ],
+          "id": "deb489a5-f591-4d84-ab44-4aad514a64bb",
+          "createdAt": "2026-07-28T03:27:38.000Z",
+          "updatedAt": "2026-07-28T03:27:38.000Z",
+          "uid": "35240-deb489a5-f591-4d84-ab44-4aad514a64bb"
+        }
+      ],
+      "id": "d6300a55-61c4-4669-9eb0-e23ad3f59a53",
+      "createdAt": "2026-07-28T03:27:38.000Z",
+      "updatedAt": "2026-07-28T03:27:38.000Z",
+      "uid": "35240-d6300a55-61c4-4669-9eb0-e23ad3f59a53"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Embedded-Session",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://appsforoffice.microsoft.com/embedded/1.0"
+    }
+  ]
+}

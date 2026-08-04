@@ -1,0 +1,188 @@
+{
+  "info": {
+    "_postman_id": "d76c1258-9af5-44ef-ba2c-0619ba8500ec",
+    "name": "Visio JavaScript Application Documents API",
+    "description": "The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().\n\nContact Support:\n Name: Microsoft Office Dev\n Email: officedevfeedback@microsoft.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:27:40.000Z",
+    "updatedAt": "2026-07-28T03:27:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d76c1258-9af5-44ef-ba2c-0619ba8500ec"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "Get Document",
+          "id": "a5a4dc22-b5ba-4776-b089-6f1d689ae280",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/document",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "document"
+              ]
+            },
+            "description": "Returns the current Visio document loaded in the embedded session, including its properties and view settings."
+          },
+          "response": [
+            {
+              "id": "87860a19-d98d-454b-816e-ac608938a78d",
+              "name": "Document object",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"application\": {\n    \"showToolbars\": \"<boolean>\"\n  },\n  \"view\": {\n    \"disableHyperlinks\": \"<boolean>\",\n    \"disablePan\": \"<boolean>\",\n    \"disableZoom\": \"<boolean>\",\n    \"hideDiagramBoundary\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-07-28T03:27:40.000Z",
+              "updatedAt": "2026-07-28T03:27:40.000Z",
+              "uid": "35240-87860a19-d98d-454b-816e-ac608938a78d"
+            },
+            {
+              "id": "94ec23c1-d886-44d1-9039-7bf3eaa4ba2e",
+              "name": "Unauthorized - Invalid or missing EmbeddedSession",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:27:40.000Z",
+              "updatedAt": "2026-07-28T03:27:40.000Z",
+              "uid": "35240-94ec23c1-d886-44d1-9039-7bf3eaa4ba2e"
+            },
+            {
+              "id": "53bde0ed-ce3a-4a3e-8481-55642aa3bcbe",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:27:40.000Z",
+              "updatedAt": "2026-07-28T03:27:40.000Z",
+              "uid": "35240-53bde0ed-ce3a-4a3e-8481-55642aa3bcbe"
+            }
+          ],
+          "createdAt": "2026-07-28T03:27:40.000Z",
+          "updatedAt": "2026-07-28T03:27:40.000Z",
+          "uid": "35240-a5a4dc22-b5ba-4776-b089-6f1d689ae280"
+        }
+      ],
+      "id": "a32df5e6-ce05-474a-a7eb-ae83a832d49c",
+      "createdAt": "2026-07-28T03:27:40.000Z",
+      "updatedAt": "2026-07-28T03:27:40.000Z",
+      "uid": "35240-a32df5e6-ce05-474a-a7eb-ae83a832d49c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Embedded-Session",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://appsforoffice.microsoft.com/embedded/1.0"
+    }
+  ]
+}

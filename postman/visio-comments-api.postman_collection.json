@@ -1,0 +1,291 @@
+{
+  "info": {
+    "_postman_id": "6c50d765-6e66-48cd-9f30-e1d86d16d6c5",
+    "name": "Visio JavaScript Application Comments API",
+    "description": "The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().\n\nContact Support:\n Name: Microsoft Office Dev\n Email: officedevfeedback@microsoft.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:27:39.000Z",
+    "updatedAt": "2026-07-28T03:27:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6c50d765-6e66-48cd-9f30-e1d86d16d6c5"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "pages",
+          "item": [
+            {
+              "name": "{pageName}",
+              "item": [
+                {
+                  "name": "shapes",
+                  "item": [
+                    {
+                      "name": "{shapeId}",
+                      "item": [
+                        {
+                          "name": "comments",
+                          "item": [
+                            {
+                              "name": "List Shape Comments",
+                              "id": "1697b4ce-0f13-4395-a8c6-4b06d66655a1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/comments",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "document",
+                                    "pages",
+                                    ":pageName",
+                                    "shapes",
+                                    ":shapeId",
+                                    "comments"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "c5ad91f0-2782-4592-ab97-1e171972de26",
+                                      "key": "pageName",
+                                      "value": "<string>",
+                                      "description": "(Required) Name of the Visio page"
+                                    },
+                                    {
+                                      "id": "570f4d78-d199-4078-b9e0-9825f0fd8f99",
+                                      "key": "shapeId",
+                                      "value": "<integer>",
+                                      "description": "(Required) Numeric ID of the shape"
+                                    }
+                                  ]
+                                },
+                                "description": "Returns all comments attached to a specific shape in the Visio diagram. Comments contain author, date, and text content."
+                              },
+                              "response": [
+                                {
+                                  "id": "e6dd629a-81fe-4b47-a6a3-3a04126ad22d",
+                                  "name": "Collection of comments",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-Embedded-Session",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/comments",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "document",
+                                        "pages",
+                                        ":pageName",
+                                        "shapes",
+                                        ":shapeId",
+                                        "comments"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "pageName"
+                                        },
+                                        {
+                                          "key": "shapeId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"items\": [\n    {\n      \"author\": \"<string>\",\n      \"date\": \"<dateTime>\",\n      \"text\": \"<string>\"\n    },\n    {\n      \"author\": \"<string>\",\n      \"date\": \"<dateTime>\",\n      \"text\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:27:39.000Z",
+                                  "updatedAt": "2026-07-28T03:27:39.000Z",
+                                  "uid": "35240-e6dd629a-81fe-4b47-a6a3-3a04126ad22d"
+                                },
+                                {
+                                  "id": "16449d90-544f-4821-a8f1-1d3ee7b9f0dc",
+                                  "name": "Shape not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-Embedded-Session",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/comments",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "document",
+                                        "pages",
+                                        ":pageName",
+                                        "shapes",
+                                        ":shapeId",
+                                        "comments"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "pageName"
+                                        },
+                                        {
+                                          "key": "shapeId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:27:39.000Z",
+                                  "updatedAt": "2026-07-28T03:27:39.000Z",
+                                  "uid": "35240-16449d90-544f-4821-a8f1-1d3ee7b9f0dc"
+                                },
+                                {
+                                  "id": "e96136c6-af4c-4865-a466-596a3506395a",
+                                  "name": "Internal server error",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-Embedded-Session",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/comments",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "document",
+                                        "pages",
+                                        ":pageName",
+                                        "shapes",
+                                        ":shapeId",
+                                        "comments"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "pageName"
+                                        },
+                                        {
+                                          "key": "shapeId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:27:39.000Z",
+                                  "updatedAt": "2026-07-28T03:27:39.000Z",
+                                  "uid": "35240-e96136c6-af4c-4865-a466-596a3506395a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:27:39.000Z",
+                              "updatedAt": "2026-07-28T03:27:39.000Z",
+                              "uid": "35240-1697b4ce-0f13-4395-a8c6-4b06d66655a1"
+                            }
+                          ],
+                          "id": "a5560cf2-abd6-438c-89fc-cf9279e3b19b",
+                          "createdAt": "2026-07-28T03:27:39.000Z",
+                          "updatedAt": "2026-07-28T03:27:39.000Z",
+                          "uid": "35240-a5560cf2-abd6-438c-89fc-cf9279e3b19b"
+                        }
+                      ],
+                      "id": "f12a78b8-7f22-4612-8b39-3cd00eaa3818",
+                      "createdAt": "2026-07-28T03:27:39.000Z",
+                      "updatedAt": "2026-07-28T03:27:39.000Z",
+                      "uid": "35240-f12a78b8-7f22-4612-8b39-3cd00eaa3818"
+                    }
+                  ],
+                  "id": "d1cd495d-efbf-402e-808f-c029decb19ef",
+                  "createdAt": "2026-07-28T03:27:39.000Z",
+                  "updatedAt": "2026-07-28T03:27:39.000Z",
+                  "uid": "35240-d1cd495d-efbf-402e-808f-c029decb19ef"
+                }
+              ],
+              "id": "9e1af895-e927-460e-a9a4-248dc6266e18",
+              "createdAt": "2026-07-28T03:27:39.000Z",
+              "updatedAt": "2026-07-28T03:27:39.000Z",
+              "uid": "35240-9e1af895-e927-460e-a9a4-248dc6266e18"
+            }
+          ],
+          "id": "065e3cf2-d12e-4faf-89c0-198cea0ae994",
+          "createdAt": "2026-07-28T03:27:39.000Z",
+          "updatedAt": "2026-07-28T03:27:39.000Z",
+          "uid": "35240-065e3cf2-d12e-4faf-89c0-198cea0ae994"
+        }
+      ],
+      "id": "11f4b404-4613-4a82-9ad5-79dcaeae065f",
+      "createdAt": "2026-07-28T03:27:39.000Z",
+      "updatedAt": "2026-07-28T03:27:39.000Z",
+      "uid": "35240-11f4b404-4613-4a82-9ad5-79dcaeae065f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Embedded-Session",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://appsforoffice.microsoft.com/embedded/1.0"
+    }
+  ]
+}

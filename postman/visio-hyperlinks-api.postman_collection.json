@@ -1,0 +1,291 @@
+{
+  "info": {
+    "_postman_id": "ce4b6df8-2d7d-4f34-9fb5-9206a5b3b50a",
+    "name": "Visio JavaScript Application Hyperlinks API",
+    "description": "The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().\n\nContact Support:\n Name: Microsoft Office Dev\n Email: officedevfeedback@microsoft.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:27:41.000Z",
+    "updatedAt": "2026-07-28T03:27:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ce4b6df8-2d7d-4f34-9fb5-9206a5b3b50a"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "pages",
+          "item": [
+            {
+              "name": "{pageName}",
+              "item": [
+                {
+                  "name": "shapes",
+                  "item": [
+                    {
+                      "name": "{shapeId}",
+                      "item": [
+                        {
+                          "name": "hyperlinks",
+                          "item": [
+                            {
+                              "name": "List Shape Hyperlinks",
+                              "id": "2e0ce1bb-3e4b-4ba4-87cb-b169eb99e5c5",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/hyperlinks",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "document",
+                                    "pages",
+                                    ":pageName",
+                                    "shapes",
+                                    ":shapeId",
+                                    "hyperlinks"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "cb5c1e56-d324-4dba-ad52-5a04c1fed6e5",
+                                      "key": "pageName",
+                                      "value": "<string>",
+                                      "description": "(Required) Name of the Visio page"
+                                    },
+                                    {
+                                      "id": "0088cca4-db19-47e9-b28d-456c5f8c3cef",
+                                      "key": "shapeId",
+                                      "value": "<integer>",
+                                      "description": "(Required) Numeric ID of the shape"
+                                    }
+                                  ]
+                                },
+                                "description": "Returns all hyperlinks attached to a specific shape in the Visio diagram. Hyperlinks may point to external URLs, other pages, or diagram elements."
+                              },
+                              "response": [
+                                {
+                                  "id": "0f74f101-005f-4851-9d7b-6647151cc92d",
+                                  "name": "Collection of hyperlinks",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-Embedded-Session",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/hyperlinks",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "document",
+                                        "pages",
+                                        ":pageName",
+                                        "shapes",
+                                        ":shapeId",
+                                        "hyperlinks"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "pageName"
+                                        },
+                                        {
+                                          "key": "shapeId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"items\": [\n    {\n      \"address\": \"<string>\",\n      \"description\": \"<string>\",\n      \"subAddress\": \"<string>\",\n      \"extraInfo\": \"<string>\"\n    },\n    {\n      \"address\": \"<string>\",\n      \"description\": \"<string>\",\n      \"subAddress\": \"<string>\",\n      \"extraInfo\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:27:41.000Z",
+                                  "updatedAt": "2026-07-28T03:27:41.000Z",
+                                  "uid": "35240-0f74f101-005f-4851-9d7b-6647151cc92d"
+                                },
+                                {
+                                  "id": "1dc694c0-c527-4ffd-b499-5c3fc184e2db",
+                                  "name": "Shape not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-Embedded-Session",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/hyperlinks",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "document",
+                                        "pages",
+                                        ":pageName",
+                                        "shapes",
+                                        ":shapeId",
+                                        "hyperlinks"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "pageName"
+                                        },
+                                        {
+                                          "key": "shapeId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:27:41.000Z",
+                                  "updatedAt": "2026-07-28T03:27:41.000Z",
+                                  "uid": "35240-1dc694c0-c527-4ffd-b499-5c3fc184e2db"
+                                },
+                                {
+                                  "id": "3c74bea8-86d0-4eab-a9ee-3fe6c9662995",
+                                  "name": "Internal server error",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-Embedded-Session",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/document/pages/:pageName/shapes/:shapeId/hyperlinks",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "document",
+                                        "pages",
+                                        ":pageName",
+                                        "shapes",
+                                        ":shapeId",
+                                        "hyperlinks"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "pageName"
+                                        },
+                                        {
+                                          "key": "shapeId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:27:41.000Z",
+                                  "updatedAt": "2026-07-28T03:27:41.000Z",
+                                  "uid": "35240-3c74bea8-86d0-4eab-a9ee-3fe6c9662995"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:27:41.000Z",
+                              "updatedAt": "2026-07-28T03:27:41.000Z",
+                              "uid": "35240-2e0ce1bb-3e4b-4ba4-87cb-b169eb99e5c5"
+                            }
+                          ],
+                          "id": "482de39a-4b86-4812-b1c5-7fc2c799629c",
+                          "createdAt": "2026-07-28T03:27:41.000Z",
+                          "updatedAt": "2026-07-28T03:27:41.000Z",
+                          "uid": "35240-482de39a-4b86-4812-b1c5-7fc2c799629c"
+                        }
+                      ],
+                      "id": "a84926c7-9e05-45a2-8e92-3eb535111cce",
+                      "createdAt": "2026-07-28T03:27:41.000Z",
+                      "updatedAt": "2026-07-28T03:27:41.000Z",
+                      "uid": "35240-a84926c7-9e05-45a2-8e92-3eb535111cce"
+                    }
+                  ],
+                  "id": "82724ab1-191f-4878-886a-730babea0372",
+                  "createdAt": "2026-07-28T03:27:41.000Z",
+                  "updatedAt": "2026-07-28T03:27:41.000Z",
+                  "uid": "35240-82724ab1-191f-4878-886a-730babea0372"
+                }
+              ],
+              "id": "978551f0-506e-407d-a5c9-7d4dcc0eadca",
+              "createdAt": "2026-07-28T03:27:41.000Z",
+              "updatedAt": "2026-07-28T03:27:41.000Z",
+              "uid": "35240-978551f0-506e-407d-a5c9-7d4dcc0eadca"
+            }
+          ],
+          "id": "c6512d20-554c-4c6b-b64c-839d444d4ef6",
+          "createdAt": "2026-07-28T03:27:41.000Z",
+          "updatedAt": "2026-07-28T03:27:41.000Z",
+          "uid": "35240-c6512d20-554c-4c6b-b64c-839d444d4ef6"
+        }
+      ],
+      "id": "688053d4-d2cf-41f7-b3ed-5263fc412d76",
+      "createdAt": "2026-07-28T03:27:41.000Z",
+      "updatedAt": "2026-07-28T03:27:41.000Z",
+      "uid": "35240-688053d4-d2cf-41f7-b3ed-5263fc412d76"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Embedded-Session",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://appsforoffice.microsoft.com/embedded/1.0"
+    }
+  ]
+}

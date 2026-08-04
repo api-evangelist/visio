@@ -1,0 +1,737 @@
+{
+  "info": {
+    "_postman_id": "9566d320-e0b5-452a-a0ef-91d403966793",
+    "name": "Visio JavaScript Application Pages API",
+    "description": "The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().\n\nContact Support:\n Name: Microsoft Office Dev\n Email: officedevfeedback@microsoft.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:27:42.000Z",
+    "updatedAt": "2026-07-28T03:27:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9566d320-e0b5-452a-a0ef-91d403966793"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "pages",
+          "item": [
+            {
+              "name": "{pageName}",
+              "item": [
+                {
+                  "name": "view",
+                  "item": [
+                    {
+                      "name": "Update Page View",
+                      "id": "131d91d9-5d2d-4aca-9115-4c234ef7735b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"zoom\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/document/pages/:pageName/view",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "document",
+                            "pages",
+                            ":pageName",
+                            "view"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1765a669-25d9-4224-a6ce-777145479d0d",
+                              "key": "pageName",
+                              "value": "<string>",
+                              "description": "(Required) Name of the Visio page"
+                            }
+                          ]
+                        },
+                        "description": "Updates the view settings for a specific Visio page, including zoom level and scroll position."
+                      },
+                      "response": [
+                        {
+                          "id": "a145b20b-d26b-4c44-bf74-0e9a4fa1d970",
+                          "name": "Updated page view",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-Embedded-Session",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"zoom\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/document/pages/:pageName/view",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "document",
+                                "pages",
+                                ":pageName",
+                                "view"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pageName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"zoom\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:27:42.000Z",
+                          "updatedAt": "2026-07-28T03:27:42.000Z",
+                          "uid": "35240-a145b20b-d26b-4c44-bf74-0e9a4fa1d970"
+                        },
+                        {
+                          "id": "fa03cd36-3a15-4dc5-86d9-6d4b28fec94e",
+                          "name": "Page not found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-Embedded-Session",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"zoom\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/document/pages/:pageName/view",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "document",
+                                "pages",
+                                ":pageName",
+                                "view"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pageName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:27:42.000Z",
+                          "updatedAt": "2026-07-28T03:27:42.000Z",
+                          "uid": "35240-fa03cd36-3a15-4dc5-86d9-6d4b28fec94e"
+                        },
+                        {
+                          "id": "8bdaf499-9ce0-47eb-a6a0-713166ab775b",
+                          "name": "Internal server error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-Embedded-Session",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"zoom\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/document/pages/:pageName/view",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "document",
+                                "pages",
+                                ":pageName",
+                                "view"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "pageName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:27:42.000Z",
+                          "updatedAt": "2026-07-28T03:27:42.000Z",
+                          "uid": "35240-8bdaf499-9ce0-47eb-a6a0-713166ab775b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:27:42.000Z",
+                      "updatedAt": "2026-07-28T03:27:42.000Z",
+                      "uid": "35240-131d91d9-5d2d-4aca-9115-4c234ef7735b"
+                    }
+                  ],
+                  "id": "0641e37a-11b1-4d74-8e58-319803ac1f17",
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-0641e37a-11b1-4d74-8e58-319803ac1f17"
+                },
+                {
+                  "name": "Get Page",
+                  "id": "245f29f1-51cb-46f4-ad06-c88a40e5b093",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/pages/:pageName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "pages",
+                        ":pageName"
+                      ],
+                      "variable": [
+                        {
+                          "id": "20065e72-2a4c-4b70-a211-567a249b9c04",
+                          "key": "pageName",
+                          "value": "<string>",
+                          "description": "(Required) Name of the Visio page to retrieve"
+                        }
+                      ]
+                    },
+                    "description": "Returns a specific page from the Visio document by its name. Includes page properties, view configuration, and associated shapes."
+                  },
+                  "response": [
+                    {
+                      "id": "569aef46-ea0e-47b7-ac72-c5e0d3c49517",
+                      "name": "Page object",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-Embedded-Session",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/document/pages/:pageName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "document",
+                            "pages",
+                            ":pageName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pageName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"index\": \"<integer>\",\n  \"isBackground\": \"<boolean>\",\n  \"view\": {\n    \"zoom\": \"<integer>\"\n  },\n  \"shapes\": {\n    \"items\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"text\": \"<string>\",\n        \"select\": \"<boolean>\",\n        \"view\": {\n          \"highlight\": {\n            \"color\": \"<string>\",\n            \"width\": \"<integer>\"\n          },\n          \"tooltip\": \"<string>\"\n        },\n        \"shapeDataItems\": {\n          \"items\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            }\n          ]\n        },\n        \"hyperlinks\": {\n          \"items\": [\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            }\n          ]\n        },\n        \"comments\": {\n          \"items\": [\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"boundingBox\": {\n          \"x\": \"<number>\",\n          \"y\": \"<number>\",\n          \"width\": \"<number>\",\n          \"height\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"text\": \"<string>\",\n        \"select\": \"<boolean>\",\n        \"view\": {\n          \"highlight\": {\n            \"color\": \"<string>\",\n            \"width\": \"<integer>\"\n          },\n          \"tooltip\": \"<string>\"\n        },\n        \"shapeDataItems\": {\n          \"items\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            }\n          ]\n        },\n        \"hyperlinks\": {\n          \"items\": [\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            }\n          ]\n        },\n        \"comments\": {\n          \"items\": [\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"boundingBox\": {\n          \"x\": \"<number>\",\n          \"y\": \"<number>\",\n          \"width\": \"<number>\",\n          \"height\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T03:27:42.000Z",
+                      "updatedAt": "2026-07-28T03:27:42.000Z",
+                      "uid": "35240-569aef46-ea0e-47b7-ac72-c5e0d3c49517"
+                    },
+                    {
+                      "id": "6c3dbaff-9c87-4a79-a0fc-4267f76a787e",
+                      "name": "Page not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-Embedded-Session",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/document/pages/:pageName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "document",
+                            "pages",
+                            ":pageName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pageName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:27:42.000Z",
+                      "updatedAt": "2026-07-28T03:27:42.000Z",
+                      "uid": "35240-6c3dbaff-9c87-4a79-a0fc-4267f76a787e"
+                    },
+                    {
+                      "id": "a1fd190e-2e61-4211-871a-5782df717908",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-Embedded-Session",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/document/pages/:pageName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "document",
+                            "pages",
+                            ":pageName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "pageName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:27:42.000Z",
+                      "updatedAt": "2026-07-28T03:27:42.000Z",
+                      "uid": "35240-a1fd190e-2e61-4211-871a-5782df717908"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-245f29f1-51cb-46f4-ad06-c88a40e5b093"
+                }
+              ],
+              "id": "c1a1681b-a1e3-42ee-a1b3-6fa30a170dc4",
+              "createdAt": "2026-07-28T03:27:42.000Z",
+              "updatedAt": "2026-07-28T03:27:42.000Z",
+              "uid": "35240-c1a1681b-a1e3-42ee-a1b3-6fa30a170dc4"
+            },
+            {
+              "name": "List Pages",
+              "id": "52a88747-4459-41c5-bb4f-1e50039e411c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document/pages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    "pages"
+                  ]
+                },
+                "description": "Returns all pages in the current Visio document. Each page includes its name, index, background status, and view settings."
+              },
+              "response": [
+                {
+                  "id": "a30a68bc-1c5e-488f-a92a-d69acc976917",
+                  "name": "Collection of pages",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/pages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "pages"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"isBackground\": \"<boolean>\",\n      \"view\": {\n        \"zoom\": \"<integer>\"\n      },\n      \"shapes\": {\n        \"items\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"text\": \"<string>\",\n            \"select\": \"<boolean>\",\n            \"view\": {\n              \"highlight\": {\n                \"color\": \"<string>\",\n                \"width\": \"<integer>\"\n              },\n              \"tooltip\": \"<string>\"\n            },\n            \"shapeDataItems\": {\n              \"items\": [\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                }\n              ]\n            },\n            \"hyperlinks\": {\n              \"items\": [\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                },\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                }\n              ]\n            },\n            \"comments\": {\n              \"items\": [\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                },\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                }\n              ]\n            },\n            \"boundingBox\": {\n              \"x\": \"<number>\",\n              \"y\": \"<number>\",\n              \"width\": \"<number>\",\n              \"height\": \"<number>\"\n            }\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"text\": \"<string>\",\n            \"select\": \"<boolean>\",\n            \"view\": {\n              \"highlight\": {\n                \"color\": \"<string>\",\n                \"width\": \"<integer>\"\n              },\n              \"tooltip\": \"<string>\"\n            },\n            \"shapeDataItems\": {\n              \"items\": [\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                }\n              ]\n            },\n            \"hyperlinks\": {\n              \"items\": [\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                },\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                }\n              ]\n            },\n            \"comments\": {\n              \"items\": [\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                },\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                }\n              ]\n            },\n            \"boundingBox\": {\n              \"x\": \"<number>\",\n              \"y\": \"<number>\",\n              \"width\": \"<number>\",\n              \"height\": \"<number>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"isBackground\": \"<boolean>\",\n      \"view\": {\n        \"zoom\": \"<integer>\"\n      },\n      \"shapes\": {\n        \"items\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"text\": \"<string>\",\n            \"select\": \"<boolean>\",\n            \"view\": {\n              \"highlight\": {\n                \"color\": \"<string>\",\n                \"width\": \"<integer>\"\n              },\n              \"tooltip\": \"<string>\"\n            },\n            \"shapeDataItems\": {\n              \"items\": [\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                }\n              ]\n            },\n            \"hyperlinks\": {\n              \"items\": [\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                },\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                }\n              ]\n            },\n            \"comments\": {\n              \"items\": [\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                },\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                }\n              ]\n            },\n            \"boundingBox\": {\n              \"x\": \"<number>\",\n              \"y\": \"<number>\",\n              \"width\": \"<number>\",\n              \"height\": \"<number>\"\n            }\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"text\": \"<string>\",\n            \"select\": \"<boolean>\",\n            \"view\": {\n              \"highlight\": {\n                \"color\": \"<string>\",\n                \"width\": \"<integer>\"\n              },\n              \"tooltip\": \"<string>\"\n            },\n            \"shapeDataItems\": {\n              \"items\": [\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"value\": \"<string>\",\n                  \"format\": \"<string>\",\n                  \"formattedValue\": \"<string>\"\n                }\n              ]\n            },\n            \"hyperlinks\": {\n              \"items\": [\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                },\n                {\n                  \"address\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"subAddress\": \"<string>\",\n                  \"extraInfo\": \"<string>\"\n                }\n              ]\n            },\n            \"comments\": {\n              \"items\": [\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                },\n                {\n                  \"author\": \"<string>\",\n                  \"date\": \"<dateTime>\",\n                  \"text\": \"<string>\"\n                }\n              ]\n            },\n            \"boundingBox\": {\n              \"x\": \"<number>\",\n              \"y\": \"<number>\",\n              \"width\": \"<number>\",\n              \"height\": \"<number>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-a30a68bc-1c5e-488f-a92a-d69acc976917"
+                },
+                {
+                  "id": "45780805-b875-4372-b5bd-324f63c688ff",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/pages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "pages"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-45780805-b875-4372-b5bd-324f63c688ff"
+                },
+                {
+                  "id": "257d6a7b-e381-4219-92ae-c2521a8770e3",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/pages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "pages"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-257d6a7b-e381-4219-92ae-c2521a8770e3"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:42.000Z",
+              "updatedAt": "2026-07-28T03:27:42.000Z",
+              "uid": "35240-52a88747-4459-41c5-bb4f-1e50039e411c"
+            }
+          ],
+          "id": "8eb8e272-236c-49b6-bd4e-93ccc6d58306",
+          "createdAt": "2026-07-28T03:27:42.000Z",
+          "updatedAt": "2026-07-28T03:27:42.000Z",
+          "uid": "35240-8eb8e272-236c-49b6-bd4e-93ccc6d58306"
+        },
+        {
+          "name": "getActivePage",
+          "item": [
+            {
+              "name": "Get Active Page",
+              "id": "ee7232fd-c8cb-433b-aadd-05e1511fa288",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document/getActivePage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    "getActivePage"
+                  ]
+                },
+                "description": "Returns the currently active page in the Visio document embedded in the SharePoint page. Includes all shapes and view configuration for the page."
+              },
+              "response": [
+                {
+                  "id": "15ac3e82-8bfa-4b9d-89ac-ada93a6f34e2",
+                  "name": "Active page object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/getActivePage",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "getActivePage"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"index\": \"<integer>\",\n  \"isBackground\": \"<boolean>\",\n  \"view\": {\n    \"zoom\": \"<integer>\"\n  },\n  \"shapes\": {\n    \"items\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"text\": \"<string>\",\n        \"select\": \"<boolean>\",\n        \"view\": {\n          \"highlight\": {\n            \"color\": \"<string>\",\n            \"width\": \"<integer>\"\n          },\n          \"tooltip\": \"<string>\"\n        },\n        \"shapeDataItems\": {\n          \"items\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            }\n          ]\n        },\n        \"hyperlinks\": {\n          \"items\": [\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            }\n          ]\n        },\n        \"comments\": {\n          \"items\": [\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"boundingBox\": {\n          \"x\": \"<number>\",\n          \"y\": \"<number>\",\n          \"width\": \"<number>\",\n          \"height\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"text\": \"<string>\",\n        \"select\": \"<boolean>\",\n        \"view\": {\n          \"highlight\": {\n            \"color\": \"<string>\",\n            \"width\": \"<integer>\"\n          },\n          \"tooltip\": \"<string>\"\n        },\n        \"shapeDataItems\": {\n          \"items\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"format\": \"<string>\",\n              \"formattedValue\": \"<string>\"\n            }\n          ]\n        },\n        \"hyperlinks\": {\n          \"items\": [\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"description\": \"<string>\",\n              \"subAddress\": \"<string>\",\n              \"extraInfo\": \"<string>\"\n            }\n          ]\n        },\n        \"comments\": {\n          \"items\": [\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"author\": \"<string>\",\n              \"date\": \"<dateTime>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"boundingBox\": {\n          \"x\": \"<number>\",\n          \"y\": \"<number>\",\n          \"width\": \"<number>\",\n          \"height\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-15ac3e82-8bfa-4b9d-89ac-ada93a6f34e2"
+                },
+                {
+                  "id": "a1cf238b-4875-4584-8db5-3ae826e2273d",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Embedded-Session",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/getActivePage",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "getActivePage"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:42.000Z",
+                  "updatedAt": "2026-07-28T03:27:42.000Z",
+                  "uid": "35240-a1cf238b-4875-4584-8db5-3ae826e2273d"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:42.000Z",
+              "updatedAt": "2026-07-28T03:27:42.000Z",
+              "uid": "35240-ee7232fd-c8cb-433b-aadd-05e1511fa288"
+            }
+          ],
+          "id": "8fdb1bd2-90c3-4ea7-b544-3723a770e4fd",
+          "createdAt": "2026-07-28T03:27:42.000Z",
+          "updatedAt": "2026-07-28T03:27:42.000Z",
+          "uid": "35240-8fdb1bd2-90c3-4ea7-b544-3723a770e4fd"
+        }
+      ],
+      "id": "86fea6d0-3e69-4171-8318-162283492899",
+      "createdAt": "2026-07-28T03:27:42.000Z",
+      "updatedAt": "2026-07-28T03:27:42.000Z",
+      "uid": "35240-86fea6d0-3e69-4171-8318-162283492899"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Embedded-Session",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://appsforoffice.microsoft.com/embedded/1.0"
+    }
+  ]
+}
