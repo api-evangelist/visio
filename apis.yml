@@ -213,7 +213,7 @@ common:
   - type: ChangeLog
     url: https://learn.microsoft.com/en-us/javascript/api/overview/visio/release-notes
   - type: OpenAPI
-    url: openapi/visio-javascript-openapi.yml
+    url: openapi/_original/visio-javascript-openapi.yml
   - type: JSONSchema
     url: json-schema/visio-shape-schema.json
   - type: JSONSchema
