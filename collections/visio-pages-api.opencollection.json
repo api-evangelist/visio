@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Visio JavaScript Application Pages API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Embedded-Session",
+      "value": "{{X-Embedded-Session}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages"
+          },
+          "docs": "Returns all pages in the current Visio document. Each page includes its name, index, background status, and view settings."
+        },
+        {
+          "info": {
+            "name": "Get Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page to retrieve"
+              }
+            ]
+          },
+          "docs": "Returns a specific page from the Visio document by its name. Includes page properties, view configuration, and associated shapes."
+        },
+        {
+          "info": {
+            "name": "Get Active Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/getActivePage"
+          },
+          "docs": "Returns the currently active page in the Visio document embedded in the SharePoint page. Includes all shapes and view configuration for the page."
+        },
+        {
+          "info": {
+            "name": "Update Page View",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/view",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the view settings for a specific Visio page, including zoom level and scroll position."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

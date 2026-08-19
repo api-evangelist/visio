@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Visio JavaScript Application Hyperlinks API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Embedded-Session",
+      "value": "{{X-Embedded-Session}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hyperlinks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Shape Hyperlinks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/shapes/:shapeId/hyperlinks",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              },
+              {
+                "name": "shapeId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the shape"
+              }
+            ]
+          },
+          "docs": "Returns all hyperlinks attached to a specific shape in the Visio diagram. Hyperlinks may point to external URLs, other pages, or diagram elements."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

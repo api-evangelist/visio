@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Visio JavaScript Application API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Embedded-Session",
+      "value": "{{X-Embedded-Session}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/application"
+          },
+          "docs": "Returns the Visio application host settings for the embedded session, including toolbar visibility and other UI configuration options."
+        },
+        {
+          "info": {
+            "name": "Update Application Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/application",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates Visio application settings such as toolbar visibility for the current embedded session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

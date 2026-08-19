@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Visio JavaScript Application Comments API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Embedded-Session",
+      "value": "{{X-Embedded-Session}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Shape Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/shapes/:shapeId/comments",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              },
+              {
+                "name": "shapeId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the shape"
+              }
+            ]
+          },
+          "docs": "Returns all comments attached to a specific shape in the Visio diagram. Comments contain author, date, and text content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Visio JavaScript Application Shape Data API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Embedded-Session",
+      "value": "{{X-Embedded-Session}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shape Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Shape Data Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/shapes/:shapeId/shapeDataItems",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              },
+              {
+                "name": "shapeId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the shape"
+              }
+            ]
+          },
+          "docs": "Returns all structured data items associated with a specific shape. Shape data items contain label-value pairs that store business data linked to diagram elements."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

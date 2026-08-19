@@ -1,0 +1,754 @@
+{
+  "item": [
+    {
+      "id": "d9a4927b-aa18-41e2-aca4-27f991b50d19",
+      "name": "Shapes",
+      "description": {
+        "content": "Operations for accessing and managing shapes on a Visio page",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d6a2f5a-8db3-4974-b5bc-17b637b05b85",
+          "name": "List Shapes",
+          "request": {
+            "name": "List Shapes",
+            "description": {
+              "content": "Returns all shapes on the specified Visio page. Each shape includes its name, text, ID, selection state, bounding box, and associated data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "pages",
+                ":pageName",
+                "shapes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageName",
+                  "description": "(Required) Name of the Visio page"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75dc5120-a78a-448a-882c-c17593054177",
+              "name": "Collection of shapes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 885,\n      \"name\": \"string\",\n      \"text\": \"string\",\n      \"select\": true,\n      \"view\": {\n        \"highlight\": {\n          \"color\": \"string\",\n          \"width\": 6912\n        },\n        \"tooltip\": \"string\"\n      },\n      \"shapeDataItems\": {\n        \"items\": [\n          {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"format\": \"string\",\n            \"formattedValue\": \"string\"\n          },\n          {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"format\": \"string\",\n            \"formattedValue\": \"string\"\n          }\n        ]\n      },\n      \"hyperlinks\": {\n        \"items\": [\n          {\n            \"address\": \"string\",\n            \"description\": \"string\",\n            \"subAddress\": \"string\",\n            \"extraInfo\": \"string\"\n          },\n          {\n            \"address\": \"string\",\n            \"description\": \"string\",\n            \"subAddress\": \"string\",\n            \"extraInfo\": \"string\"\n          }\n        ]\n      },\n      \"comments\": {\n        \"items\": [\n          {\n            \"author\": \"string\",\n            \"date\": \"2000-08-09T18:43:34.945Z\",\n            \"text\": \"string\"\n          },\n          {\n            \"author\": \"string\",\n            \"date\": \"2025-12-27T15:23:47.034Z\",\n            \"text\": \"string\"\n          }\n        ]\n      },\n      \"boundingBox\": {\n        \"x\": 6084.512523978868,\n        \"y\": 4643.25789583736,\n        \"width\": 8845.58917966082,\n        \"height\": 5660.323677227177\n      }\n    },\n    {\n      \"id\": 1393,\n      \"name\": \"string\",\n      \"text\": \"string\",\n      \"select\": true,\n      \"view\": {\n        \"highlight\": {\n          \"color\": \"string\",\n          \"width\": 7978\n        },\n        \"tooltip\": \"string\"\n      },\n      \"shapeDataItems\": {\n        \"items\": [\n          {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"format\": \"string\",\n            \"formattedValue\": \"string\"\n          },\n          {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"format\": \"string\",\n            \"formattedValue\": \"string\"\n          }\n        ]\n      },\n      \"hyperlinks\": {\n        \"items\": [\n          {\n            \"address\": \"string\",\n            \"description\": \"string\",\n            \"subAddress\": \"string\",\n            \"extraInfo\": \"string\"\n          },\n          {\n            \"address\": \"string\",\n            \"description\": \"string\",\n            \"subAddress\": \"string\",\n            \"extraInfo\": \"string\"\n          }\n        ]\n      },\n      \"comments\": {\n        \"items\": [\n          {\n            \"author\": \"string\",\n            \"date\": \"1988-10-31T13:07:23.683Z\",\n            \"text\": \"string\"\n          },\n          {\n            \"author\": \"string\",\n            \"date\": \"2015-03-15T22:17:44.705Z\",\n            \"text\": \"string\"\n          }\n        ]\n      },\n      \"boundingBox\": {\n        \"x\": 422.8758614555772,\n        \"y\": 6469.499098683471,\n        \"width\": 9292.613135051217,\n        \"height\": 9849.634667180942\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8c87a71-9d3d-4751-aa57-ef577f8b6e64",
+              "name": "Page not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1a39004-797d-4f36-9e3c-815ecab06122",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31c2a5a8-0382-4ef7-bff4-b24016efc568",
+          "name": "Get Shape",
+          "request": {
+            "name": "Get Shape",
+            "description": {
+              "content": "Returns a specific shape on the Visio page identified by its shape ID. Includes shape text, data items, hyperlinks, and visual view properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "pages",
+                ":pageName",
+                "shapes",
+                ":shapeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageName",
+                  "description": "(Required) Name of the Visio page"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "shapeId",
+                  "description": "(Required) Numeric ID of the shape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65771233-122e-40a4-91f0-e30a71160bf7",
+              "name": "Shape object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes",
+                    ":shapeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "shapeId",
+                      "description": "(Required) Numeric ID of the shape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3465,\n  \"name\": \"string\",\n  \"text\": \"string\",\n  \"select\": true,\n  \"view\": {\n    \"highlight\": {\n      \"color\": \"string\",\n      \"width\": 1587\n    },\n    \"tooltip\": \"string\"\n  },\n  \"shapeDataItems\": {\n    \"items\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\",\n        \"format\": \"string\",\n        \"formattedValue\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\",\n        \"format\": \"string\",\n        \"formattedValue\": \"string\"\n      }\n    ]\n  },\n  \"hyperlinks\": {\n    \"items\": [\n      {\n        \"address\": \"string\",\n        \"description\": \"string\",\n        \"subAddress\": \"string\",\n        \"extraInfo\": \"string\"\n      },\n      {\n        \"address\": \"string\",\n        \"description\": \"string\",\n        \"subAddress\": \"string\",\n        \"extraInfo\": \"string\"\n      }\n    ]\n  },\n  \"comments\": {\n    \"items\": [\n      {\n        \"author\": \"string\",\n        \"date\": \"2004-04-27T20:48:03.981Z\",\n        \"text\": \"string\"\n      },\n      {\n        \"author\": \"string\",\n        \"date\": \"1973-12-06T01:39:57.241Z\",\n        \"text\": \"string\"\n      }\n    ]\n  },\n  \"boundingBox\": {\n    \"x\": 2327.2279228275593,\n    \"y\": 4136.077994965387,\n    \"width\": 7328.7337690648465,\n    \"height\": 2997.28550189836\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22640510-4d18-4e84-b4ac-584fb5d5a2bf",
+              "name": "Shape not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes",
+                    ":shapeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "shapeId",
+                      "description": "(Required) Numeric ID of the shape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bab3971e-38fb-4a55-82f4-3d511a6752b8",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes",
+                    ":shapeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "shapeId",
+                      "description": "(Required) Numeric ID of the shape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe8f55ca-8cd5-475a-8d2f-5f53e007cbe3",
+          "name": "Update Shape View",
+          "request": {
+            "name": "Update Shape View",
+            "description": {
+              "content": "Updates the visual presentation of a shape, including highlight color, tooltip text, and overlay content for the specified shape.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "pages",
+                ":pageName",
+                "shapes",
+                ":shapeId",
+                "view"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageName",
+                  "description": "(Required) Name of the Visio page"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "shapeId",
+                  "description": "(Required) Numeric ID of the shape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"highlight\": {\n    \"color\": \"<string>\",\n    \"width\": \"<integer>\"\n  },\n  \"tooltip\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea066fc6-81c6-41f3-b692-ed5b23e4e47e",
+              "name": "Updated shape view",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes",
+                    ":shapeId",
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "shapeId",
+                      "description": "(Required) Numeric ID of the shape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"highlight\": {\n    \"color\": \"string\",\n    \"width\": 730\n  },\n  \"tooltip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"highlight\": {\n    \"color\": \"string\",\n    \"width\": 4287\n  },\n  \"tooltip\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "541bea5e-f787-400f-8e0b-b8efad270c73",
+              "name": "Shape not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes",
+                    ":shapeId",
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "shapeId",
+                      "description": "(Required) Numeric ID of the shape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"highlight\": {\n    \"color\": \"string\",\n    \"width\": 730\n  },\n  \"tooltip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c790718a-5e46-4981-aa50-ac3e5d0ca528",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "pages",
+                    ":pageName",
+                    "shapes",
+                    ":shapeId",
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageName",
+                      "description": "(Required) Name of the Visio page"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "shapeId",
+                      "description": "(Required) Numeric ID of the shape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Embedded-Session",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"highlight\": {\n    \"color\": \"string\",\n    \"width\": 730\n  },\n  \"tooltip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://appsforoffice.microsoft.com/embedded/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Embedded-Session"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "daea14eb-a9c4-4e5c-b248-76b2fd38ede1",
+    "name": "Visio JavaScript Application Shapes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().\n\nContact Support:\n Name: Microsoft Office Dev\n Email: officedevfeedback@microsoft.com",
+      "type": "text/plain"
+    }
+  }
+}

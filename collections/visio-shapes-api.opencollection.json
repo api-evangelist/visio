@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Visio JavaScript Application Shapes API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Embedded-Session",
+      "value": "{{X-Embedded-Session}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shapes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Shapes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/shapes",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              }
+            ]
+          },
+          "docs": "Returns all shapes on the specified Visio page. Each shape includes its name, text, ID, selection state, bounding box, and associated data."
+        },
+        {
+          "info": {
+            "name": "Get Shape",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/shapes/:shapeId",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              },
+              {
+                "name": "shapeId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the shape"
+              }
+            ]
+          },
+          "docs": "Returns a specific shape on the Visio page identified by its shape ID. Includes shape text, data items, hyperlinks, and visual view properties."
+        },
+        {
+          "info": {
+            "name": "Update Shape View",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://appsforoffice.microsoft.com/embedded/1.0/document/pages/:pageName/shapes/:shapeId/view",
+            "params": [
+              {
+                "name": "pageName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Visio page"
+              },
+              {
+                "name": "shapeId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the shape"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the visual presentation of a shape, including highlight color, tooltip text, and overlay content for the specified shape."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
