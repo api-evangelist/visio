@@ -97,7 +97,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 - aid: visio:visio-comments-api
   name: Microsoft Visio API Comments API
@@ -115,7 +115,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 - aid: visio:visio-documents-api
   name: Microsoft Visio API Documents API
@@ -133,7 +133,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 - aid: visio:visio-hyperlinks-api
   name: Microsoft Visio API Hyperlinks API
@@ -151,7 +151,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 - aid: visio:visio-pages-api
   name: Microsoft Visio API Pages API
@@ -169,7 +169,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 - aid: visio:visio-shape-data-api
   name: Microsoft Visio API Shape Data API
@@ -187,7 +187,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 - aid: visio:visio-shapes-api
   name: Microsoft Visio API Shapes API
@@ -205,7 +205,7 @@ apis:
     url: https://learn.microsoft.com/en-us/javascript/api/visio
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
-  - type: Samples
+  - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
 common:
   - type: PostmanWorkspace
