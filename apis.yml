@@ -5,6 +5,18 @@ description: >-
   API enables developers to build Office Add-ins that interact with Visio diagrams embedded in SharePoint Online pages,
   accessing document elements such as pages, shapes, hyperlinks, comments, and shape data. Visio APIs support
   programmatic diagram manipulation, visual overlay creation, mouse event handling, and data visualization workflows.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
