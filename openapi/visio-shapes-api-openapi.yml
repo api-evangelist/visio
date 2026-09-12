@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Visio JavaScript Application Shapes API
   description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
@@ -141,6 +141,32 @@ components:
           $ref: '#/components/schemas/CommentCollection'
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
+    Highlight:
+      type: object
+      description: Highlight decoration applied to a shape
+      properties:
+        color:
+          type: string
+          description: CSS color string for the highlight (e.g.
+        width:
+          type: integer
+          description: Width of the highlight border in points
+    ShapeDataItemCollection:
+      type: object
+      description: Collection of data items associated with a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
     CommentCollection:
       type: object
       description: Collection of comments on a shape
@@ -149,31 +175,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Comment'
-    BoundingBox:
+    ShapeDataItem:
       type: object
-      description: Bounding box coordinates of a shape
+      description: A structured data item (label-value pair) associated with a shape
       properties:
-        x:
-          type: number
-          description: X coordinate of the top-left corner
-        y:
-          type: number
-          description: Y coordinate of the top-left corner
-        width:
-          type: number
-          description: Width of the bounding box
-        height:
-          type: number
-          description: Height of the bounding box
-    ShapeViewUpdate:
-      type: object
-      description: Partial update to shape view settings
-      properties:
-        highlight:
-          $ref: '#/components/schemas/Highlight'
-        tooltip:
+        label:
           type: string
-          description: New tooltip text for the shape
+          description: Label or key for the data item
+        value:
+          type: string
+          description: Value associated with the label
+        format:
+          type: string
+          description: Optional display format for the value
+        formattedValue:
+          type: string
+          description: Value after applying the format string
     Comment:
       type: object
       description: A comment associated with a Visio shape
@@ -204,32 +221,15 @@ components:
         extraInfo:
           type: string
           description: Additional information passed with the URL
-    HyperlinkCollection:
+    ShapeViewUpdate:
       type: object
-      description: Collection of hyperlinks on a shape
+      description: Partial update to shape view settings
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hyperlink'
-    ShapeCollection:
-      type: object
-      description: A collection of shapes on a Visio page
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Shape'
-    Highlight:
-      type: object
-      description: Highlight decoration applied to a shape
-      properties:
-        color:
+        highlight:
+          $ref: '#/components/schemas/Highlight'
+        tooltip:
           type: string
-          description: CSS color string for the highlight (e.g.
-        width:
-          type: integer
-          description: Width of the highlight border in points
+          description: New tooltip text for the shape
     ShapeView:
       type: object
       description: Visual presentation settings for a shape
@@ -239,30 +239,30 @@ components:
         tooltip:
           type: string
           description: Tooltip text shown on hover
-    ShapeDataItemCollection:
+    BoundingBox:
       type: object
-      description: Collection of data items associated with a shape
+      description: Bounding box coordinates of a shape
+      properties:
+        x:
+          type: number
+          description: X coordinate of the top-left corner
+        y:
+          type: number
+          description: Y coordinate of the top-left corner
+        width:
+          type: number
+          description: Width of the bounding box
+        height:
+          type: number
+          description: Height of the bounding box
+    ShapeCollection:
+      type: object
+      description: A collection of shapes on a Visio page
       properties:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/ShapeDataItem'
-    ShapeDataItem:
-      type: object
-      description: A structured data item (label-value pair) associated with a shape
-      properties:
-        label:
-          type: string
-          description: Label or key for the data item
-        value:
-          type: string
-          description: Value associated with the label
-        format:
-          type: string
-          description: Optional display format for the value
-        formattedValue:
-          type: string
-          description: Value after applying the format string
+            $ref: '#/components/schemas/Shape'
   securitySchemes:
     EmbeddedSession:
       type: apiKey

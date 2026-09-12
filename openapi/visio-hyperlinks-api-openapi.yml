@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Visio JavaScript Application Hyperlinks API
   description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
@@ -53,6 +53,14 @@ paths:
           description: Internal server error
 components:
   schemas:
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
     Hyperlink:
       type: object
       description: A hyperlink attached to a Visio shape
@@ -69,14 +77,6 @@ components:
         extraInfo:
           type: string
           description: Additional information passed with the URL
-    HyperlinkCollection:
-      type: object
-      description: Collection of hyperlinks on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hyperlink'
   securitySchemes:
     EmbeddedSession:
       type: apiKey

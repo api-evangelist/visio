@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Visio JavaScript Application Pages API
   description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
@@ -112,33 +112,13 @@ paths:
           description: Internal server error
 components:
   schemas:
-    Page:
+    PageView:
       type: object
-      description: Represents a page in the Visio document
-      properties:
-        id:
-          type: integer
-          description: Numeric page identifier
-        name:
-          type: string
-          description: Name of the page
-        index:
-          type: integer
-          description: Zero-based index of the page in the document
-        isBackground:
-          type: boolean
-          description: Whether this page is a background page
-        view:
-          $ref: '#/components/schemas/PageView'
-        shapes:
-          $ref: '#/components/schemas/ShapeCollection'
-    PageViewUpdate:
-      type: object
-      description: Partial update to page view settings
+      description: View settings for a Visio page
       properties:
         zoom:
           type: integer
-          description: Zoom level as a percentage
+          description: Zoom level as a percentage (e.g. 100 for 100%)
     PageCollection:
       type: object
       description: A collection of Visio pages
@@ -173,13 +153,32 @@ components:
           $ref: '#/components/schemas/CommentCollection'
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
-    PageView:
+    Highlight:
       type: object
-      description: View settings for a Visio page
+      description: Highlight decoration applied to a shape
       properties:
-        zoom:
+        color:
+          type: string
+          description: CSS color string for the highlight (e.g.
+        width:
           type: integer
-          description: Zoom level as a percentage (e.g. 100 for 100%)
+          description: Width of the highlight border in points
+    ShapeDataItemCollection:
+      type: object
+      description: Collection of data items associated with a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
     CommentCollection:
       type: object
       description: Collection of comments on a shape
@@ -188,22 +187,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Comment'
-    BoundingBox:
+    ShapeDataItem:
       type: object
-      description: Bounding box coordinates of a shape
+      description: A structured data item (label-value pair) associated with a shape
       properties:
-        x:
-          type: number
-          description: X coordinate of the top-left corner
-        y:
-          type: number
-          description: Y coordinate of the top-left corner
-        width:
-          type: number
-          description: Width of the bounding box
-        height:
-          type: number
-          description: Height of the bounding box
+        label:
+          type: string
+          description: Label or key for the data item
+        value:
+          type: string
+          description: Value associated with the label
+        format:
+          type: string
+          description: Optional display format for the value
+        formattedValue:
+          type: string
+          description: Value after applying the format string
     Comment:
       type: object
       description: A comment associated with a Visio shape
@@ -234,32 +233,13 @@ components:
         extraInfo:
           type: string
           description: Additional information passed with the URL
-    HyperlinkCollection:
+    PageViewUpdate:
       type: object
-      description: Collection of hyperlinks on a shape
+      description: Partial update to page view settings
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hyperlink'
-    ShapeCollection:
-      type: object
-      description: A collection of shapes on a Visio page
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Shape'
-    Highlight:
-      type: object
-      description: Highlight decoration applied to a shape
-      properties:
-        color:
-          type: string
-          description: CSS color string for the highlight (e.g.
-        width:
+        zoom:
           type: integer
-          description: Width of the highlight border in points
+          description: Zoom level as a percentage
     ShapeView:
       type: object
       description: Visual presentation settings for a shape
@@ -269,30 +249,50 @@ components:
         tooltip:
           type: string
           description: Tooltip text shown on hover
-    ShapeDataItemCollection:
+    Page:
       type: object
-      description: Collection of data items associated with a shape
+      description: Represents a page in the Visio document
+      properties:
+        id:
+          type: integer
+          description: Numeric page identifier
+        name:
+          type: string
+          description: Name of the page
+        index:
+          type: integer
+          description: Zero-based index of the page in the document
+        isBackground:
+          type: boolean
+          description: Whether this page is a background page
+        view:
+          $ref: '#/components/schemas/PageView'
+        shapes:
+          $ref: '#/components/schemas/ShapeCollection'
+    BoundingBox:
+      type: object
+      description: Bounding box coordinates of a shape
+      properties:
+        x:
+          type: number
+          description: X coordinate of the top-left corner
+        y:
+          type: number
+          description: Y coordinate of the top-left corner
+        width:
+          type: number
+          description: Width of the bounding box
+        height:
+          type: number
+          description: Height of the bounding box
+    ShapeCollection:
+      type: object
+      description: A collection of shapes on a Visio page
       properties:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/ShapeDataItem'
-    ShapeDataItem:
-      type: object
-      description: A structured data item (label-value pair) associated with a shape
-      properties:
-        label:
-          type: string
-          description: Label or key for the data item
-        value:
-          type: string
-          description: Value associated with the label
-        format:
-          type: string
-          description: Optional display format for the value
-        formattedValue:
-          type: string
-          description: Value after applying the format string
+            $ref: '#/components/schemas/Shape'
   securitySchemes:
     EmbeddedSession:
       type: apiKey

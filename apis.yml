@@ -1,10 +1,7 @@
 aid: visio
 name: Microsoft Visio API
-description: >-
-  Microsoft Visio provides APIs for creating, editing, and managing Visio diagrams and drawings. The Visio JavaScript
-  API enables developers to build Office Add-ins that interact with Visio diagrams embedded in SharePoint Online pages,
-  accessing document elements such as pages, shapes, hyperlinks, comments, and shape data. Visio APIs support
-  programmatic diagram manipulation, visual overlay creation, mouse event handling, and data visualization workflows.
+x-parent: microsoft-365
+description: Microsoft Visio provides APIs for creating, editing, and managing Visio diagrams and drawings. The Visio JavaScript API enables developers to build Office Add-ins that interact with Visio diagrams embedded in SharePoint Online pages, accessing document elements such as pages, shapes, hyperlinks, comments, and shape data. Visio APIs support programmatic diagram manipulation, visual overlay creation, mouse event handling, and data visualization workflows.
 deliveryModel:
   model: saas
   open_source: false
@@ -34,21 +31,21 @@ accessModel:
 image: https://www.microsoft.com/en-us/microsoft-365/visio/visio-logo.png
 type: Index
 tags:
-  - Business Process
-  - Collaboration
-  - Diagrams
-  - Enterprise
-  - Flowcharts
-  - Microsoft-365
-  - Visualization
+- Business Process
+- Collaboration
+- Diagrams
+- Enterprise
+- Flowcharts
+- Microsoft-365
+- Visualization
 tags_raw:
-  - Business Process
-  - Collaboration
-  - Diagrams
-  - Enterprise
-  - Flowcharts
-  - Microsoft 365
-  - Visualization
+- Business Process
+- Collaboration
+- Diagrams
+- Enterprise
+- Flowcharts
+- Microsoft 365
+- Visualization
 url: https://raw.githubusercontent.com/api-evangelist/visio/refs/heads/main/apis.yml
 created: '2024'
 modified: '2026-05-19'
@@ -56,11 +53,7 @@ specificationVersion: '0.23'
 apis:
 - aid: visio:microsoft-graph-visio-api
   name: Microsoft Graph Visio API
-  description: >-
-    Access and manipulate Visio files stored in OneDrive and SharePoint through Microsoft Graph. While
-    direct Visio-specific REST endpoints are limited, Microsoft Graph provides file management capabilities
-    for Visio documents through the DriveItem resource, enabling upload, download, and metadata operations
-    on .vsdx and .vsd files stored in SharePoint and OneDrive.
+  description: Access and manipulate Visio files stored in OneDrive and SharePoint through Microsoft Graph. While direct Visio-specific REST endpoints are limited, Microsoft Graph provides file management capabilities for Visio documents through the DriveItem resource, enabling upload, download, and metadata operations on .vsdx and .vsd files stored in SharePoint and OneDrive.
   humanURL: https://learn.microsoft.com/en-us/graph/api/resources/visio
   baseURL: https://graph.microsoft.com/v1.0
   tags:
@@ -208,57 +201,83 @@ apis:
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart
   - type: Examples
     url: https://github.com/OfficeDev/Office-Add-in-samples
+- name: Visio JavaScript API
+  description: JavaScript API for building add-ins and extending Visio functionality in the browser with access to documents, pages, shapes, and comments.
+  humanURL: https://learn.microsoft.com/en-us/javascript/api/visio
+  baseURL: https://learn.microsoft.com/en-us/javascript/api/visio
+  tags:
+  - Add-Ins
+  - Browser
+  - JavaScript
+  - Office Add-Ins
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/javascript/api/visio
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/javascript/api/visio?view=visio-js-1.1
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-add-ins-overview
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Office-Add-in-samples
 common:
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/microsoft-visio-api/overview
-  - type: AgenticAccess
-    url: agentic-access/visio-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/visio-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/visio-domain-security.yml
-  - type: Authentication
-    url: authentication/visio-authentication.yml
-  - type: TermsOfService
-    url: https://www.microsoft.com/en-us/legal/terms-of-use
-  - type: PrivacyPolicy
-    url: https://privacy.microsoft.com/en-us/privacystatement
-  - type: DeveloperPortal
-    url: https://developer.microsoft.com/en-us/microsoft-365
-  - type: StatusPage
-    url: https://status.office.com
-  - type: Pricing
-    url: https://www.microsoft.com/en-us/microsoft-365/visio/microsoft-visio-plans-and-pricing-compare-visio-options
-  - type: Blog
-    url: https://devblogs.microsoft.com/microsoft365dev/
-  - type: ChangeLog
-    url: https://learn.microsoft.com/en-us/javascript/api/overview/visio/release-notes
-  - type: OpenAPI
-    url: openapi/_original/visio-javascript-openapi.yml
-  - type: JSONSchema
-    url: json-schema/visio-shape-schema.json
-  - type: JSONSchema
-    url: json-schema/visio-page-schema.json
-  - type: JSONStructure
-    url: json-structure/visio-shape-structure.json
-  - type: JSONLD
-    url: json-ld/visio-context.jsonld
-  - type: Vocabulary
-    url: vocabulary/visio-vocabulary.yml
-  - type: SpectralRules
-    url: rules/visio-rules.yml
-  - type: Integrations
-    url: https://www.microsoft.com/en-us/marketplace
+- type: OAuthScopes
+  url: scopes/visio-scopes.yml
+- type: Support
+  url: https://support.microsoft.com/visio
+- type: GitHubOrganization
+  url: https://github.com/OfficeDev
+- type: Website
+  url: https://www.microsoft.com/
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/microsoft-visio-api/overview
+- type: AgenticAccess
+  url: agentic-access/visio-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/visio-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/visio-domain-security.yml
+- type: Authentication
+  url: authentication/visio-authentication.yml
+- type: TermsOfService
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/en-us/privacystatement
+- type: DeveloperPortal
+  url: https://developer.microsoft.com/en-us/microsoft-365
+- type: StatusPage
+  url: https://status.office.com
+- type: Pricing
+  url: https://www.microsoft.com/en-us/microsoft-365/visio/microsoft-visio-plans-and-pricing-compare-visio-options
+- type: Blog
+  url: https://devblogs.microsoft.com/microsoft365dev/
+- type: ChangeLog
+  url: https://learn.microsoft.com/en-us/javascript/api/overview/visio/release-notes
+- type: OpenAPI
+  url: openapi/_original/visio-javascript-openapi.yml
+- type: JSONSchema
+  url: json-schema/visio-shape-schema.json
+- type: JSONSchema
+  url: json-schema/visio-page-schema.json
+- type: JSONStructure
+  url: json-structure/visio-shape-structure.json
+- type: JSONLD
+  url: json-ld/visio-context.jsonld
+- type: Vocabulary
+  url: vocabulary/visio-vocabulary.yml
+- type: SpectralRules
+  url: rules/visio-rules.yml
+- type: Integrations
+  url: https://www.microsoft.com/en-us/marketplace
 integrations:
-  - name: Microsoft
-  - name: Two people looking at a computer.
-  - name: This is placeholder text for
-  - name: IDC
-  - name: Nationwide
-  - name: RSA company
-  - name: Teleperformance
-  - name: A woman smiling at a laptop
-  - name: A man holding a laptop.
+- name: Microsoft
+- name: Two people looking at a computer.
+- name: This is placeholder text for
+- name: IDC
+- name: Nationwide
+- name: RSA company
+- name: Teleperformance
+- name: A woman smiling at a laptop
+- name: A man holding a laptop.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
