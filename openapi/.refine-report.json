@@ -1,13 +1,7 @@
 {
   "provider": "visio",
   "sources": [
-    "visio-application-api-openapi.yml",
-    "visio-comments-api-openapi.yml",
-    "visio-documents-api-openapi.yml",
-    "visio-hyperlinks-api-openapi.yml",
-    "visio-pages-api-openapi.yml",
-    "visio-shape-data-api-openapi.yml",
-    "visio-shapes-api-openapi.yml"
+    "_original/visio-javascript-openapi.yml"
   ],
   "outputs": [
     "visio-application-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "visio-javascript-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "visio-application-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "visio-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "visio-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "visio-hyperlinks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "visio-pages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "visio-shape-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "visio-shapes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

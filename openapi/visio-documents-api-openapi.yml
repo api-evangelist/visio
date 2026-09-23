@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Visio JavaScript Application Documents API
-  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual overlays, register mouse event handlers, read shape text and shape data, and control application settings. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+  title: Visio JavaScript Documents API
+  description: The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages.
   version: '1.1'
   contact:
     name: Microsoft Office Dev
@@ -47,20 +47,6 @@ components:
         showToolbars:
           type: boolean
           description: Whether toolbars are displayed in the Visio application
-    Document:
-      type: object
-      description: Represents the Visio document loaded in the embedded session
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the document
-        title:
-          type: string
-          description: Title of the Visio document
-        application:
-          $ref: '#/components/schemas/Application'
-        view:
-          $ref: '#/components/schemas/DocumentView'
     DocumentView:
       type: object
       description: View settings for the Visio document
@@ -77,6 +63,20 @@ components:
         hideDiagramBoundary:
           type: boolean
           description: Whether the diagram boundary is hidden
+    Document:
+      type: object
+      description: Represents the Visio document loaded in the embedded session
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the document
+        title:
+          type: string
+          description: Title of the Visio document
+        application:
+          $ref: '#/components/schemas/Application'
+        view:
+          $ref: '#/components/schemas/DocumentView'
   securitySchemes:
     EmbeddedSession:
       type: apiKey
