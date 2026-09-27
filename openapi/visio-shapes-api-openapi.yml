@@ -115,6 +115,95 @@ paths:
           description: Internal server error
 components:
   schemas:
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
+    BoundingBox:
+      type: object
+      description: Bounding box coordinates of a shape
+      properties:
+        x:
+          type: number
+          description: X coordinate of the top-left corner
+        y:
+          type: number
+          description: Y coordinate of the top-left corner
+        width:
+          type: number
+          description: Width of the bounding box
+        height:
+          type: number
+          description: Height of the bounding box
+    ShapeDataItemCollection:
+      type: object
+      description: Collection of data items associated with a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
+    Hyperlink:
+      type: object
+      description: A hyperlink attached to a Visio shape
+      properties:
+        address:
+          type: string
+          description: URL or file path the hyperlink points to
+        description:
+          type: string
+          description: Display description for the hyperlink
+        subAddress:
+          type: string
+          description: Sub-address within the target (e.g. page name)
+        extraInfo:
+          type: string
+          description: Additional information passed with the URL
+    ShapeView:
+      type: object
+      description: Visual presentation settings for a shape
+      properties:
+        highlight:
+          $ref: '#/components/schemas/Highlight'
+        tooltip:
+          type: string
+          description: Tooltip text shown on hover
+    CommentCollection:
+      type: object
+      description: Collection of comments on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    Comment:
+      type: object
+      description: A comment associated with a Visio shape
+      properties:
+        author:
+          type: string
+          description: Name of the comment author
+        date:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was created
+        text:
+          type: string
+          description: Content of the comment
+    Highlight:
+      type: object
+      description: Highlight decoration applied to a shape
+      properties:
+        color:
+          type: string
+          description: CSS color string for the highlight (e.g.
+        width:
+          type: integer
+          description: Width of the highlight border in points
     Shape:
       type: object
       description: Represents a shape element on a Visio page
@@ -141,22 +230,6 @@ components:
           $ref: '#/components/schemas/CommentCollection'
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
-    ShapeDataItemCollection:
-      type: object
-      description: Collection of data items associated with a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShapeDataItem'
-    CommentCollection:
-      type: object
-      description: Collection of comments on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Comment'
     ShapeCollection:
       type: object
       description: A collection of shapes on a Visio page
@@ -165,79 +238,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Shape'
-    Hyperlink:
+    ShapeViewUpdate:
       type: object
-      description: A hyperlink attached to a Visio shape
-      properties:
-        address:
-          type: string
-          description: URL or file path the hyperlink points to
-        description:
-          type: string
-          description: Display description for the hyperlink
-        subAddress:
-          type: string
-          description: Sub-address within the target (e.g. page name)
-        extraInfo:
-          type: string
-          description: Additional information passed with the URL
-    BoundingBox:
-      type: object
-      description: Bounding box coordinates of a shape
-      properties:
-        x:
-          type: number
-          description: X coordinate of the top-left corner
-        y:
-          type: number
-          description: Y coordinate of the top-left corner
-        width:
-          type: number
-          description: Width of the bounding box
-        height:
-          type: number
-          description: Height of the bounding box
-    HyperlinkCollection:
-      type: object
-      description: Collection of hyperlinks on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hyperlink'
-    Comment:
-      type: object
-      description: A comment associated with a Visio shape
-      properties:
-        author:
-          type: string
-          description: Name of the comment author
-        date:
-          type: string
-          format: date-time
-          description: Timestamp when the comment was created
-        text:
-          type: string
-          description: Content of the comment
-    Highlight:
-      type: object
-      description: Highlight decoration applied to a shape
-      properties:
-        color:
-          type: string
-          description: CSS color string for the highlight (e.g.
-        width:
-          type: integer
-          description: Width of the highlight border in points
-    ShapeView:
-      type: object
-      description: Visual presentation settings for a shape
+      description: Partial update to shape view settings
       properties:
         highlight:
           $ref: '#/components/schemas/Highlight'
         tooltip:
           type: string
-          description: Tooltip text shown on hover
+          description: New tooltip text for the shape
     ShapeDataItem:
       type: object
       description: A structured data item (label-value pair) associated with a shape
@@ -254,15 +263,6 @@ components:
         formattedValue:
           type: string
           description: Value after applying the format string
-    ShapeViewUpdate:
-      type: object
-      description: Partial update to shape view settings
-      properties:
-        highlight:
-          $ref: '#/components/schemas/Highlight'
-        tooltip:
-          type: string
-          description: New tooltip text for the shape
   securitySchemes:
     EmbeddedSession:
       type: apiKey

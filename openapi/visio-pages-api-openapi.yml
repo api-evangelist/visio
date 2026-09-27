@@ -112,6 +112,137 @@ paths:
           description: Internal server error
 components:
   schemas:
+    Page:
+      type: object
+      description: Represents a page in the Visio document
+      properties:
+        id:
+          type: integer
+          description: Numeric page identifier
+        name:
+          type: string
+          description: Name of the page
+        index:
+          type: integer
+          description: Zero-based index of the page in the document
+        isBackground:
+          type: boolean
+          description: Whether this page is a background page
+        view:
+          $ref: '#/components/schemas/PageView'
+        shapes:
+          $ref: '#/components/schemas/ShapeCollection'
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
+    PageView:
+      type: object
+      description: View settings for a Visio page
+      properties:
+        zoom:
+          type: integer
+          description: Zoom level as a percentage (e.g. 100 for 100%)
+    BoundingBox:
+      type: object
+      description: Bounding box coordinates of a shape
+      properties:
+        x:
+          type: number
+          description: X coordinate of the top-left corner
+        y:
+          type: number
+          description: Y coordinate of the top-left corner
+        width:
+          type: number
+          description: Width of the bounding box
+        height:
+          type: number
+          description: Height of the bounding box
+    ShapeDataItemCollection:
+      type: object
+      description: Collection of data items associated with a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
+    Hyperlink:
+      type: object
+      description: A hyperlink attached to a Visio shape
+      properties:
+        address:
+          type: string
+          description: URL or file path the hyperlink points to
+        description:
+          type: string
+          description: Display description for the hyperlink
+        subAddress:
+          type: string
+          description: Sub-address within the target (e.g. page name)
+        extraInfo:
+          type: string
+          description: Additional information passed with the URL
+    PageViewUpdate:
+      type: object
+      description: Partial update to page view settings
+      properties:
+        zoom:
+          type: integer
+          description: Zoom level as a percentage
+    ShapeView:
+      type: object
+      description: Visual presentation settings for a shape
+      properties:
+        highlight:
+          $ref: '#/components/schemas/Highlight'
+        tooltip:
+          type: string
+          description: Tooltip text shown on hover
+    CommentCollection:
+      type: object
+      description: Collection of comments on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    Comment:
+      type: object
+      description: A comment associated with a Visio shape
+      properties:
+        author:
+          type: string
+          description: Name of the comment author
+        date:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was created
+        text:
+          type: string
+          description: Content of the comment
+    PageCollection:
+      type: object
+      description: A collection of Visio pages
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+    Highlight:
+      type: object
+      description: Highlight decoration applied to a shape
+      properties:
+        color:
+          type: string
+          description: CSS color string for the highlight (e.g.
+        width:
+          type: integer
+          description: Width of the highlight border in points
     Shape:
       type: object
       description: Represents a shape element on a Visio page
@@ -138,50 +269,6 @@ components:
           $ref: '#/components/schemas/CommentCollection'
         boundingBox:
           $ref: '#/components/schemas/BoundingBox'
-    ShapeDataItemCollection:
-      type: object
-      description: Collection of data items associated with a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShapeDataItem'
-    CommentCollection:
-      type: object
-      description: Collection of comments on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Comment'
-    Page:
-      type: object
-      description: Represents a page in the Visio document
-      properties:
-        id:
-          type: integer
-          description: Numeric page identifier
-        name:
-          type: string
-          description: Name of the page
-        index:
-          type: integer
-          description: Zero-based index of the page in the document
-        isBackground:
-          type: boolean
-          description: Whether this page is a background page
-        view:
-          $ref: '#/components/schemas/PageView'
-        shapes:
-          $ref: '#/components/schemas/ShapeCollection'
-    PageCollection:
-      type: object
-      description: A collection of Visio pages
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Page'
     ShapeCollection:
       type: object
       description: A collection of shapes on a Visio page
@@ -190,86 +277,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Shape'
-    Hyperlink:
-      type: object
-      description: A hyperlink attached to a Visio shape
-      properties:
-        address:
-          type: string
-          description: URL or file path the hyperlink points to
-        description:
-          type: string
-          description: Display description for the hyperlink
-        subAddress:
-          type: string
-          description: Sub-address within the target (e.g. page name)
-        extraInfo:
-          type: string
-          description: Additional information passed with the URL
-    PageViewUpdate:
-      type: object
-      description: Partial update to page view settings
-      properties:
-        zoom:
-          type: integer
-          description: Zoom level as a percentage
-    BoundingBox:
-      type: object
-      description: Bounding box coordinates of a shape
-      properties:
-        x:
-          type: number
-          description: X coordinate of the top-left corner
-        y:
-          type: number
-          description: Y coordinate of the top-left corner
-        width:
-          type: number
-          description: Width of the bounding box
-        height:
-          type: number
-          description: Height of the bounding box
-    HyperlinkCollection:
-      type: object
-      description: Collection of hyperlinks on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hyperlink'
-    Comment:
-      type: object
-      description: A comment associated with a Visio shape
-      properties:
-        author:
-          type: string
-          description: Name of the comment author
-        date:
-          type: string
-          format: date-time
-          description: Timestamp when the comment was created
-        text:
-          type: string
-          description: Content of the comment
-    Highlight:
-      type: object
-      description: Highlight decoration applied to a shape
-      properties:
-        color:
-          type: string
-          description: CSS color string for the highlight (e.g.
-        width:
-          type: integer
-          description: Width of the highlight border in points
-    ShapeView:
-      type: object
-      description: Visual presentation settings for a shape
-      properties:
-        highlight:
-          $ref: '#/components/schemas/Highlight'
-        tooltip:
-          type: string
-          description: Tooltip text shown on hover
     ShapeDataItem:
       type: object
       description: A structured data item (label-value pair) associated with a shape
@@ -286,13 +293,6 @@ components:
         formattedValue:
           type: string
           description: Value after applying the format string
-    PageView:
-      type: object
-      description: View settings for a Visio page
-      properties:
-        zoom:
-          type: integer
-          description: Zoom level as a percentage (e.g. 100 for 100%)
   securitySchemes:
     EmbeddedSession:
       type: apiKey

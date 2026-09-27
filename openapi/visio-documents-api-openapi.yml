@@ -40,13 +40,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    Application:
-      type: object
-      description: Represents the Visio application host settings
-      properties:
-        showToolbars:
-          type: boolean
-          description: Whether toolbars are displayed in the Visio application
     DocumentView:
       type: object
       description: View settings for the Visio document
@@ -77,6 +70,13 @@ components:
           $ref: '#/components/schemas/Application'
         view:
           $ref: '#/components/schemas/DocumentView'
+    Application:
+      type: object
+      description: Represents the Visio application host settings
+      properties:
+        showToolbars:
+          type: boolean
+          description: Whether toolbars are displayed in the Visio application
   securitySchemes:
     EmbeddedSession:
       type: apiKey
