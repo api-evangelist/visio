@@ -53,14 +53,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    HyperlinkCollection:
-      type: object
-      description: Collection of hyperlinks on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hyperlink'
     Hyperlink:
       type: object
       description: A hyperlink attached to a Visio shape
@@ -77,6 +69,14 @@ components:
         extraInfo:
           type: string
           description: Additional information passed with the URL
+    HyperlinkCollection:
+      type: object
+      description: Collection of hyperlinks on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hyperlink'
   securitySchemes:
     EmbeddedSession:
       type: apiKey

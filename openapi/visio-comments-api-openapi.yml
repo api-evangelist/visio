@@ -53,14 +53,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    CommentCollection:
-      type: object
-      description: Collection of comments on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Comment'
     Comment:
       type: object
       description: A comment associated with a Visio shape
@@ -75,6 +67,14 @@ components:
         text:
           type: string
           description: Content of the comment
+    CommentCollection:
+      type: object
+      description: Collection of comments on a shape
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
   securitySchemes:
     EmbeddedSession:
       type: apiKey

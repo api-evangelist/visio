@@ -115,6 +115,15 @@ paths:
           description: Internal server error
 components:
   schemas:
+    ShapeView:
+      type: object
+      description: Visual presentation settings for a shape
+      properties:
+        highlight:
+          $ref: '#/components/schemas/Highlight'
+        tooltip:
+          type: string
+          description: Tooltip text shown on hover
     HyperlinkCollection:
       type: object
       description: Collection of hyperlinks on a shape
@@ -139,14 +148,14 @@ components:
         height:
           type: number
           description: Height of the bounding box
-    ShapeDataItemCollection:
+    CommentCollection:
       type: object
-      description: Collection of data items associated with a shape
+      description: Collection of comments on a shape
       properties:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/ShapeDataItem'
+            $ref: '#/components/schemas/Comment'
     Hyperlink:
       type: object
       description: A hyperlink attached to a Visio shape
@@ -163,47 +172,22 @@ components:
         extraInfo:
           type: string
           description: Additional information passed with the URL
-    ShapeView:
+    ShapeDataItem:
       type: object
-      description: Visual presentation settings for a shape
+      description: A structured data item (label-value pair) associated with a shape
       properties:
-        highlight:
-          $ref: '#/components/schemas/Highlight'
-        tooltip:
+        label:
           type: string
-          description: Tooltip text shown on hover
-    CommentCollection:
-      type: object
-      description: Collection of comments on a shape
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Comment'
-    Comment:
-      type: object
-      description: A comment associated with a Visio shape
-      properties:
-        author:
+          description: Label or key for the data item
+        value:
           type: string
-          description: Name of the comment author
-        date:
+          description: Value associated with the label
+        format:
           type: string
-          format: date-time
-          description: Timestamp when the comment was created
-        text:
+          description: Optional display format for the value
+        formattedValue:
           type: string
-          description: Content of the comment
-    Highlight:
-      type: object
-      description: Highlight decoration applied to a shape
-      properties:
-        color:
-          type: string
-          description: CSS color string for the highlight (e.g.
-        width:
-          type: integer
-          description: Width of the highlight border in points
+          description: Value after applying the format string
     Shape:
       type: object
       description: Represents a shape element on a Visio page
@@ -238,6 +222,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Shape'
+    Comment:
+      type: object
+      description: A comment associated with a Visio shape
+      properties:
+        author:
+          type: string
+          description: Name of the comment author
+        date:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was created
+        text:
+          type: string
+          description: Content of the comment
+    Highlight:
+      type: object
+      description: Highlight decoration applied to a shape
+      properties:
+        color:
+          type: string
+          description: CSS color string for the highlight (e.g.
+        width:
+          type: integer
+          description: Width of the highlight border in points
     ShapeViewUpdate:
       type: object
       description: Partial update to shape view settings
@@ -247,22 +255,14 @@ components:
         tooltip:
           type: string
           description: New tooltip text for the shape
-    ShapeDataItem:
+    ShapeDataItemCollection:
       type: object
-      description: A structured data item (label-value pair) associated with a shape
+      description: Collection of data items associated with a shape
       properties:
-        label:
-          type: string
-          description: Label or key for the data item
-        value:
-          type: string
-          description: Value associated with the label
-        format:
-          type: string
-          description: Optional display format for the value
-        formattedValue:
-          type: string
-          description: Value after applying the format string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShapeDataItem'
   securitySchemes:
     EmbeddedSession:
       type: apiKey
