@@ -40,22 +40,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    DocumentView:
-      type: object
-      description: View settings for the Visio document
-      properties:
-        disableHyperlinks:
-          type: boolean
-          description: Whether hyperlinks are disabled in the document view
-        disablePan:
-          type: boolean
-          description: Whether panning is disabled
-        disableZoom:
-          type: boolean
-          description: Whether zooming is disabled
-        hideDiagramBoundary:
-          type: boolean
-          description: Whether the diagram boundary is hidden
     Document:
       type: object
       description: Represents the Visio document loaded in the embedded session
@@ -77,6 +61,22 @@ components:
         showToolbars:
           type: boolean
           description: Whether toolbars are displayed in the Visio application
+    DocumentView:
+      type: object
+      description: View settings for the Visio document
+      properties:
+        disableHyperlinks:
+          type: boolean
+          description: Whether hyperlinks are disabled in the document view
+        disablePan:
+          type: boolean
+          description: Whether panning is disabled
+        disableZoom:
+          type: boolean
+          description: Whether zooming is disabled
+        hideDiagramBoundary:
+          type: boolean
+          description: Whether the diagram boundary is hidden
   securitySchemes:
     EmbeddedSession:
       type: apiKey
