@@ -33,7 +33,7 @@ type: Index
 tags:
 - Business Process
 - Collaboration
-- Diagrams
+- Diagramming
 - Enterprise
 - Flowcharts
 - Microsoft 365
@@ -58,6 +58,14 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/graph/api/resources/visio
   baseURL: https://graph.microsoft.com/v1.0
   tags:
+  - Cloud
+  - Collaboration
+  - Diagramming
+  - Enterprise
+  - Microsoft Graph
+  - OneDrive
+  - SharePoint
+  tags_raw:
   - Cloud
   - Collaboration
   - Diagrams
