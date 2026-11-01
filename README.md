@@ -1,4 +1,4 @@
-# Microsoft Visio API (visio)
+# Microsoft Visio API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,100 +66,190 @@
 
 Microsoft Visio provides APIs for creating, editing, and managing Visio diagrams and drawings. The Visio JavaScript API enables developers to build Office Add-ins that interact with Visio diagrams embedded in SharePoint Online pages, accessing document elements such as pages, shapes, hyperlinks, comments, and shape data. Visio APIs support programmatic diagram manipulation, visual overlay creation, mouse event handling, and data visualization workflows.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/visio/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/visio/refs/heads/main/apis.yml)
+**Areas:** Business Process · Collaboration · Diagramming · Enterprise · Flowcharts · Microsoft 365 · Visualization
 
-## Scope
+## Microsoft Visio API on APIs.io
 
-- **Type:** Index
+Everything profiled for Microsoft Visio API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/visio/](https://apis.io/providers/visio/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Business Process
-- Collaboration
-- Diagrams
-- Enterprise
-- Flowcharts
-- Microsoft 365
-- Visualization
+- [Microsoft Graph Visio API](https://apis.io/apis/visio/microsoft-graph-visio-api/) — Access and manipulate Visio files stored in OneDrive and SharePoint through Microsoft Graph. While direct Visio-specific REST endpoints are limited,…
+- [Microsoft Visio API Application API](https://apis.io/apis/visio/visio-application-api/) — Operations for controlling the Visio application host settings
+- [Microsoft Visio API Comments API](https://apis.io/apis/visio/visio-comments-api/) — Operations for reading and managing shape comments
+- [Microsoft Visio API Documents API](https://apis.io/apis/visio/visio-documents-api/) — Operations for accessing and managing Visio document properties and views
+- [Microsoft Visio API Hyperlinks API](https://apis.io/apis/visio/visio-hyperlinks-api/) — Operations for accessing hyperlinks attached to shapes
+- [Microsoft Visio API Pages API](https://apis.io/apis/visio/visio-pages-api/) — Operations for listing and managing pages within a Visio document
+- [Microsoft Visio API Shape Data API](https://apis.io/apis/visio/visio-shape-data-api/) — Operations for reading structured data associated with shapes
+- [Microsoft Visio API Shapes API](https://apis.io/apis/visio/visio-shapes-api/) — Operations for accessing and managing shapes on a Visio page
+- [Visio JavaScript API](https://apis.io/apis/visio/visio-javascript-api/) — JavaScript API for building add-ins and extending Visio functionality in the browser with access to documents, pages, shapes, and comments.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Visio JavaScript API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Visio JavaScript API enables building Office Add-ins that interact with Visio diagrams embedded in classic SharePoint Online pages. The API provides access to document elements including pages, shapes, hyperlinks, comments, shape data items, and shape views. Developers can create visual markup overlays, register mouse event handlers, read shape text and shape data, and control application toolbar visibility. The API uses a request context and proxy object pattern with batch execution via Visio.run() and context.sync().
+- [Visio Agentic Access](https://apis.io/agentic-access/visio/visio-agentic-access/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview](https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview)
-- **Base URL:** `https://appsforoffice.microsoft.com/embedded/1.0`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Add-Ins
-- Client-Side
-- Diagrams
-- JavaScript
-- Office
-- SharePoint
-- Web
+- [Visio Page](https://apis.io/schemas/visio/visio-page/)
+- [Visio Shape](https://apis.io/schemas/visio/visio-shape/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://learn.microsoft.com/en-us/office/dev/add-ins/visio/visio-overview)
-- [Reference](https://learn.microsoft.com/en-us/javascript/api/visio)
-- [Getting Started](https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/visio-quickstart)
-- [Samples](https://github.com/OfficeDev/Office-Add-in-samples)
-- [OpenAPI](openapi/visio-javascript-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/visio-javascript.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/visio-javascript.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### Microsoft Graph Visio API
+- [Visio Shape Structure](https://apis.io/json-structure/visio/visio-shape-structure/)
 
-Access and manipulate Visio files stored in OneDrive and SharePoint through Microsoft Graph. While direct Visio-specific REST endpoints are limited, Microsoft Graph provides file management capabilities for Visio documents through the DriveItem resource, enabling upload, download, and metadata operations on .vsdx and .vsd files stored in SharePoint and OneDrive.
+#### JSON-LD (1)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/visio](https://learn.microsoft.com/en-us/graph/api/resources/visio)
-- **Base URL:** `https://graph.microsoft.com/v1.0`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Visio Context](https://apis.io/jsonld/visio/visio-context/)
 
-- Cloud
-- Collaboration
-- Diagrams
-- Enterprise
-- Microsoft Graph
-- OneDrive
-- SharePoint
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://learn.microsoft.com/en-us/graph/api/resources/visio)
-- [Authentication](https://learn.microsoft.com/en-us/graph/auth/)
-- [S D Ks](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview)
-- [Postman Collection](collections/visio-javascript.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/visio-javascript.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Microsoft Visio API Vocabulary](https://apis.io/vocabularies/visio/visio-vocabulary/)
 
-## Common Properties
+#### Examples (2)
 
-- [Terms of Service](https://www.microsoft.com/en-us/legal/terms-of-use)
-- [Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
-- [Developer  Portal](https://developer.microsoft.com/en-us/microsoft-365)
-- [Status Page](https://status.office.com)
+Example requests and responses.
+
+- [Visio Javascript Listpages Example](https://apis.io/examples/visio/visio-javascript-listPages-example/)
+- [Visio Javascript Listshapes Example](https://apis.io/examples/visio/visio-javascript-listShapes-example/)
+
+#### Collections (15)
+
+Postman and Open Collection request collections.
+
+- [Visio JavaScript Application API](https://apis.io/collections/visio/open-visio-application-api/)
+- [Visio JavaScript Application Comments API](https://apis.io/collections/visio/open-visio-comments-api/)
+- [Visio JavaScript Application Documents API](https://apis.io/collections/visio/open-visio-documents-api/)
+- [Visio JavaScript Application Hyperlinks API](https://apis.io/collections/visio/open-visio-hyperlinks-api/)
+- [Visio JavaScript API](https://apis.io/collections/visio/open-visio-javascript/)
+- [Visio JavaScript Application Pages API](https://apis.io/collections/visio/open-visio-pages-api/)
+- [Visio JavaScript Application Shape Data API](https://apis.io/collections/visio/open-visio-shape-data-api/)
+- [Visio JavaScript Application Shapes API](https://apis.io/collections/visio/open-visio-shapes-api/)
+- [Visio JavaScript Application API](https://apis.io/collections/visio/postman-visio-application-api/)
+- [Visio JavaScript Application Comments API](https://apis.io/collections/visio/postman-visio-comments-api/)
+- [Visio JavaScript Application Documents API](https://apis.io/collections/visio/postman-visio-documents-api/)
+- [Visio JavaScript Application Hyperlinks API](https://apis.io/collections/visio/postman-visio-hyperlinks-api/)
+- [Visio JavaScript Application Pages API](https://apis.io/collections/visio/postman-visio-pages-api/)
+- [Visio JavaScript Application Shape Data API](https://apis.io/collections/visio/postman-visio-shape-data-api/)
+- [Visio JavaScript Application Shapes API](https://apis.io/collections/visio/postman-visio-shapes-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Microsoft Visio API — jsonschema rules](https://apis.io/rules/visio/visio-jsonschema-spectral-rules/)
+- [Microsoft Visio API API Rules](https://apis.io/rules/visio/visio-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Visio Authentication](https://apis.io/security/visio/visio-authentication/)
+- [Visio Domain Security](https://apis.io/security/visio/visio-domain-security/)
+- [Visio Vulnerability Disclosure](https://apis.io/security/visio/visio-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Visio Scopes](https://apis.io/scopes/visio/visio-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Visio Plans Pricing](https://apis.io/plans/visio/visio-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Visio Rate Limits](https://apis.io/rate-limits/visio/visio-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Visio Finops](https://apis.io/finops/visio/visio-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.microsoft.com/)
 - [Pricing](https://www.microsoft.com/en-us/microsoft-365/visio/microsoft-visio-plans-and-pricing-compare-visio-options)
-- [Blog](https://devblogs.microsoft.com/microsoft365dev/)
+- [Support](https://support.microsoft.com/visio)
 - [Changelog](https://learn.microsoft.com/en-us/javascript/api/overview/visio/release-notes)
-- [OpenAPI](openapi/visio-javascript-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/visio-shape-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/visio-page-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/visio-shape-structure.json)
-- [JSON-LD](json-ld/visio-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Vocabulary](vocabulary/visio-vocabulary.yml)
-- [Spectral Rules](rules/visio-rules.yml)
-- [Integrations](https://www.microsoft.com/en-us/marketplace)
+- [Blog](https://devblogs.microsoft.com/microsoft365dev/)
+- [Terms of service](https://www.microsoft.com/en-us/legal/terms-of-use)
+- [Privacy policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [GitHub](https://github.com/OfficeDev)
+- [Status](https://status.office.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 50.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 60.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 53.6 |
+| Access clarity | 39.5 |
+
+**Agent readiness 20.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/visio/](https://apis.io/providers/visio/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft Visio API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/visio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
